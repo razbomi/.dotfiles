@@ -9,7 +9,8 @@ Itstall
 
 Installed
 
-* [NERDTree](https://github.com/scrooloose/nerdtree.git)
+* [NERDTree](https://github.com/scrooloose/nerdtree)
+* [NERDComenter](https://github.com/scrooloose/nerdcommenter)
 
 ## Vim Browser
 
@@ -20,3 +21,12 @@ Keyboard shortcuts in the spirit of `vi` for Chrome
 ## Cheatsheets
 
 * https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+
+## Vim goldfish help
+
+* open a file `:e <filename>`
+* open a dir `:Ex <directory>`
+* open new `:enew` 
+
+* help vundle `:help vundle`
+* help nerdtree `:help nerdtree`
