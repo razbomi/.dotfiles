@@ -4,7 +4,7 @@
 
 Itstallations
 
-* `git clone [https://github.com/VundleVim/Vundle.vim.git](https://github.com/VundleVim/Vundle.vim.git) ~/.vim/bundle/Vundle.vim`
+* https://github.com/VundleVim/Vundle.vim.git `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
 
 ## Vim Browser
 
