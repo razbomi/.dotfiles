@@ -4,11 +4,11 @@
 
 Itstallations
 
-* `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
+* `git clone [https://github.com/VundleVim/Vundle.vim.git](https://github.com/VundleVim/Vundle.vim.git) ~/.vim/bundle/Vundle.vim`
 
 ## Vim Browser
 
-Keyboar shortcuts in the spirit of `vi` for Chrome
+Keyboard shortcuts in the spirit of `vi` for Chrome
 
 * https://github.com/philc/vimium/blob/master/README.md
 
