@@ -2,10 +2,14 @@
 
 ## Vim Plugins
 
-Itstallations
+Itstall
 
 * [Vundle](https://github.com/VundleVim/Vundle.vim.git) `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
-* [NERDTree](https://github.com/scrooloose/nerdtree.git) `git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree$`
+* `:PluginInstall`
+
+Installed
+
+* [NERDTree](https://github.com/scrooloose/nerdtree.git)
 
 ## Vim Browser
 
