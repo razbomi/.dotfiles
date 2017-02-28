@@ -27,7 +27,6 @@ Plugin 'pangloss/vim-javascript'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
@@ -43,5 +42,40 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 " Configuration
+"
+" Generic
+set number          " Show line nubmers
+set laststatus=2    " Show the status line all the time
+set tabstop=2       " Global tab width.
+set shiftwidth=2    " And again, related.
+set expandtab       " Use spaces instead of tabs
+
+" Git
+map <leader>gs :Gstatus<cr>
+map <leader>gb :Gblame<cr>
+map <leader>gc :Gcommit<cr>
+map <leader>gp :!git push<cr>
+
 " NertTree shortcuts
 map <C-n> :NERDTreeToggle<CR>
+
+" Syntatic (https://github.com/vim-syntastic/syntastic)
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" Solarized
+syntax enable
+set background=dark
+colorscheme solarized
+
+" Vim airline
+let g:airline#extensions#tabline#enabled = 1
+"let g:airline_powerline_fonts = 1
+let g:airline_symbols_ascii = 1
+let g:airline_theme = 'tomorrow'
