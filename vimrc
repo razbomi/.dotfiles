@@ -18,9 +18,10 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'townk/vim-autoclose'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-ragtag'
 Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-surround'
 Plugin 'pangloss/vim-javascript'
 Plugin 'editorconfig/editorconfig-vim'
 
@@ -44,12 +45,13 @@ filetype plugin indent on    " required
 
 " Configuration
 "
-" Generic
+" Generic (https://github.com/rowanu/.dotfiles/)
 set number          " Show line nubmers
 set laststatus=2    " Show the status line all the time
 set tabstop=2       " Global tab width.
 set shiftwidth=2    " And again, related.
 set expandtab       " Use spaces instead of tabs
+set lazyredraw      " Speedy up the terminal
 
 " Git
 map <leader>gs :Gstatus<cr>
@@ -65,12 +67,24 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" The defaults slow down vim on file open
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+nmap <leader>ln :lnext<cr>
+nmap <leader>lp :lprevious<cr>
+let g:syntastic_enable_signs=1
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
+let g:syntastic_loc_list_height=5
 
 let g:syntastic_javascript_checkers = ['eslint']
+
+" vim-javacript
+let g:html_indent_inctags = "html,body,head,tbody"
+let g:html_indent_script1 = "inc"
+let g:html_indent_style1 = "inc""
 
 " Solarized
 syntax enable
