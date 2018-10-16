@@ -1,5 +1,12 @@
 # My dot files
 
+```
+$ cd ~/dotfiles
+$ stow bash
+$ stow tmux
+$ stow vim
+```
+
 ## Vim Plugins
 
 hell
