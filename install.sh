@@ -7,12 +7,19 @@ INSTALL_DIR="${INSTALL_DIR:-${HOME}/.dotfiles}"
 
 [[ -a .env ]] && source .env
 
+msg() {
+  # TODO: figlet with colors
+  echo -e "\n\e[38;5;$1m$2\e[0m"
+
+}
+
 clean_all() {
   stow -vD scripts -t ${HOME}/.bin
   stow -vD files
 }
 
 download::dotfiles() {
+  msg 29 "Download dotfiles"
   git clone git@github.com:razbomi/.dotfiles.git $1
 }
 
@@ -38,6 +45,7 @@ initial_install() {
 
 install_dotfiles() {
   # https://www.gnu.org/software/stow/manual/stow.html
+  msg 29 "Install dotfiles"
   [[ -a "${HOME}/.bin" ]] || mkdir ${HOME}/.bin
   stow -vd "${INSTALL_DIR}" -S scripts -t ${HOME}/.bin
   stow -vd "${INSTALL_DIR}" -S files
