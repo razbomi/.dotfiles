@@ -13,7 +13,7 @@ download_dotfiles() {
 
 install_dotfiles() {
   # https://www.gnu.org/software/stow/manual/stow.html
-  stow -vv -d "${INSTALL_DIR}" -S files -t "${INSTALL_DIR}"
+  stow -vv -d "${INSTALL_DIR}" -S files
 }
 
 download_dotfiles
