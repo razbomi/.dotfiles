@@ -16,7 +16,7 @@ $ ./install.sh
 Developing loacally
 
 ```
-$ INSTALL_DIR=../tmp ./install.s
+$ INSTALL_DIR=../tmp ./install.sh
 ```
 
 TODO: testing
