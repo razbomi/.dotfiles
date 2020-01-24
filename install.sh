@@ -7,7 +7,7 @@ INSTALL_DIR="${INSTALL_DIR:-${HOME}/.dotfiles}"
 
 [[ -a .env ]] && source .env
 
-clean() {
+clean_all() {
   stow -vD scripts -t ${HOME}/.bin
   stow -vD files
 }
@@ -16,8 +16,9 @@ download::dotfiles() {
   git clone git@github.com:razbomi/.dotfiles.git $1
 }
 
-download::brew() {
-  echo "Implement me"
+install::brew() {
+  command -v brew 2>&1 || /usr/bin/ruby -e \
+    "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 }
 
 install_bundle() {
@@ -32,15 +33,16 @@ install_bundle() {
 initial_install() {
   [[ -a "${INSTALL_DIR}" ]] && return 0
   download::dotfiles "${INSTALL_DIR}"
+  install::brew
 }
 
 install_dotfiles() {
   # https://www.gnu.org/software/stow/manual/stow.html
   [[ -a "${HOME}/.bin" ]] || mkdir ${HOME}/.bin
-  stow -vv -d "${INSTALL_DIR}" -S scripts -t ${HOME}/.bin
-  stow -v -d "${INSTALL_DIR}" -S files
+  stow -vd "${INSTALL_DIR}" -S scripts -t ${HOME}/.bin
+  stow -vd "${INSTALL_DIR}" -S files
 }
 
-clean
+clean_all
 initial_install
-install_dotfiles
+#install_dotfiles
