@@ -1,17 +1,29 @@
 # My dot files
 
+First install
+
 ```
-$ cd ~/dotfiles
-$ stow bash
-$ stow tmux
-$ stow vim
+$ curl -sS https://raw.githubusercontent.com/razbomi/.dotfiles/master/install.sh | zsh
 ```
+
+Install updates after a change
+
+```
+$ cd ~/.dotfiles
+$ ./install.sh
+```
+
+Developing loacally
+
+```
+$ INSTALL_DIR=../tmp ./install.s
+```
+
+TODO: testing
 
 ## Vim Plugins
 
-hell
-
-Itstall
+Install vim plgins using a plugin manager
 
 * [Vundle](https://github.com/VundleVim/Vundle.vim.git) `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
 * `:PluginInstall`
