@@ -43,6 +43,6 @@ install_dotfiles() {
   stow -vd "${INSTALL_DIR}" -S files
 }
 
-clean_all
+#clean_all
 initial_install
-#install_dotfiles
+install_dotfiles
