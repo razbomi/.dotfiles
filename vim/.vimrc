@@ -13,6 +13,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'hashivim/vim-terraform'
 Plugin 'leafgarland/typescript-vim.git'
+#Plugin 'majutsushi/tagbar'
 Plugin 'morhetz/gruvbox'
 Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/nerdtree'
@@ -114,3 +115,8 @@ let g:airline#extensions#tabline#enabled = 1
 "let g:airline_powerline_fonts = 1
 let g:airline_symbols_ascii = 1
 let g:airline_theme = 'gruvbox'
+
+" ===================
+" vim-terraform
+" ===================
+let g:terraform_fmt_on_save = 0
