@@ -13,11 +13,17 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+# Try presto if this becomes too slow
 plugins=(
   aws
+  docker
+  docker-compose
+  dotenv
   git
-  rbenv
   kubectl
+  rbenv
+  tmux
+  tmuxinator
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -58,6 +64,7 @@ export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 #
 alias a="alias | grep"
 alias bats="${HOME}/Development/Projects/Mine/bats/bin/bats"
+alias bb="brew bundle -v --global"
 alias ctags="`brew --prefix`/bin/ctags"
 alias gpl="gupav"
 alias ta="source .env && terragrunt apply || terragrunt apply"
@@ -73,3 +80,4 @@ alias tp="source .env && terragrunt plan || terragrunt plan"
 #SLS_TABTAB_DIR="$(npm root -g)/serverless/node_modules/tabtab/.completions"
 #[[ -f ${SLS_TABTAB_DIR}/sls.zsh ]] && . ${SLS_TABTAB_DIR}/sls.zsh
 #[[ -f ${SLS_TABTAB_DIR}/serverless.zsh ]] && . ${SLS_TABTAB_DIR}/serverless.zsh
+eval $(thefuck --alias)
