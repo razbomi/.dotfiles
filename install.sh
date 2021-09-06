@@ -52,5 +52,5 @@ install_dotfiles() {
 }
 
 #clean_all
-initial_install
+#initial_install
 install_dotfiles

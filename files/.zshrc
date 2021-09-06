@@ -20,15 +20,22 @@ plugins=(
   docker-compose
   dotenv
   git
+  kube-ps1
   kubectl
-  rbenv
   tmux
   tmuxinator
+  fzf
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  zshmarks
 )
 
 source $ZSH/oh-my-zsh.sh
 
+KUBE_PS1_SYMBOL_ENABLE=false
+RPROMPT=$RPROMPT'$(kube_ps1)'
 TERM=xterm-256color
+
 export AWS_DEFAULT_REGION=ap-southeast-2
 export AWS_SDK_LOAD_CONFIG=true
 export GPG_TTY=$(tty)
@@ -65,20 +72,36 @@ export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 alias a="alias | grep"
 alias bats="${HOME}/Development/Projects/Mine/bats/bin/bats"
 alias bb="brew bundle -v --global"
-alias ctags="`brew --prefix`/bin/ctags"
-alias gpl="gupav"
-alias gh="history|grep"
+alias ds="docker stop \$(docker ps -a -q)"
+alias dr="docker rm \$(docker ps -a -q)"
+alias h="history|grep"
+alias j="jsonnet"
+#alias jb="jsonnet-bundler"
+alias kb="kustomize build"
+alias kc="kustomize completion bash >/etc/bash_completion.d/kustomize"
+alias kx="kubectx"
 alias ta="source .env && terragrunt apply || terragrunt apply"
 alias taa="source .env && terragrunt apply -auto-approve || terragrunt apply -auto-approve"
 alias tda="source .env && terragrunt destroy -auto-approve || terragrunt destroy -auto-approve"
 alias tdel="find . -name '.terra*' -type d -print | xargs rm -rf"
-alias tf="terraform fmt"
+alias tf="terraform"
 alias tp="source .env && terragrunt plan || terragrunt plan"
+alias tra="source .env && terragrunt run-all apply || terragrunt run-all apply"
+alias trp="source .env && terragrunt run-all plan || terragrunt run-all plan"
 
-#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                    # This loads nvm
-#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# https://github.com/jocelynmallon/zshmarks#notestips
+alias qg="jump"
+alias qs="bookmark"
+alias qd="deletemark"
+alias ql="showmarks"
+
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                    # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 #SLS_TABTAB_DIR="$(npm root -g)/serverless/node_modules/tabtab/.completions"
 #[[ -f ${SLS_TABTAB_DIR}/sls.zsh ]] && . ${SLS_TABTAB_DIR}/sls.zsh
 #[[ -f ${SLS_TABTAB_DIR}/serverless.zsh ]] && . ${SLS_TABTAB_DIR}/serverless.zsh
-eval $(thefuck --alias)
+export PATH="/usr/local/opt/mongodb-community@4.2/bin:$PATH"
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/tk tk
