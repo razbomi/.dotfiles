@@ -41,3 +41,6 @@ cask "hyper"                          # https://hyper.is/
 #stow
 #tanka
 #jq
+#kubernetes-cli
+#sops
+#helm

@@ -74,10 +74,11 @@ alias bats="${HOME}/Development/Projects/Mine/bats/bin/bats"
 alias bb="brew bundle -v --global"
 alias ds="docker stop \$(docker ps -a -q)"
 alias dr="docker rm \$(docker ps -a -q)"
+alias fmocha="echo \"\x1B[?25h\""
 alias h="history|grep"
 alias j="jsonnet"
 #alias jb="jsonnet-bundler"
-alias kb="kustomize build"
+alias kb="kustomize build --enable-helm"
 alias kc="kustomize completion bash >/etc/bash_completion.d/kustomize"
 alias kx="kubectx"
 alias ta="source .env && terragrunt apply || terragrunt apply"
@@ -90,10 +91,10 @@ alias tra="source .env && terragrunt run-all apply || terragrunt run-all apply"
 alias trp="source .env && terragrunt run-all plan || terragrunt run-all plan"
 
 # https://github.com/jocelynmallon/zshmarks#notestips
-alias qg="jump"
-alias qs="bookmark"
-alias qd="deletemark"
-alias ql="showmarks"
+alias g="jump"
+alias s="bookmark"
+alias dm="deletemark"
+alias lm="showmarks"
 
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                    # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -105,3 +106,5 @@ export PATH="/usr/local/opt/mongodb-community@4.2/bin:$PATH"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/tk tk
+export PATH="/usr/local/opt/mongodb-community@4.4/bin:$PATH"
+export PATH="/usr/local/opt/libpq/bin:$PATH"
