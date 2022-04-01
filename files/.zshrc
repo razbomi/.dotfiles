@@ -16,14 +16,11 @@ ZSH_THEME="robbyrussell"
 # Try presto if this becomes too slow
 plugins=(
   aws
-  docker
-  docker-compose
   dotenv
   git
   kube-ps1
   kubectl
   tmux
-  tmuxinator
   fzf
   zsh-autosuggestions
   zsh-syntax-highlighting
