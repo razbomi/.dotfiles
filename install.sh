@@ -46,9 +46,7 @@ initial_install() {
 install_dotfiles() {
   # https://www.gnu.org/software/stow/manual/stow.html
   msg 29 "Install dotfiles"
-  [[ -a "${HOME}/.bin" ]] || mkdir ${HOME}/.bin
-  stow -vd "${INSTALL_DIR}" -S scripts -t ${HOME}/.bin
-  stow -vd "${INSTALL_DIR}" -S files
+  stow --no-folding -vd "${INSTALL_DIR}" -S files
 }
 
 #clean_all
