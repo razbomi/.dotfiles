@@ -20,6 +20,7 @@ plugins=(
   git
   kube-ps1
   kubectl
+  kubetail
   tmux
   fzf
   zsh-autosuggestions
@@ -43,6 +44,7 @@ export PATH=/usr/local/bin:$PATH
 export PATH=$PATH:$GOPATH/bin
 export PATH="/usr/local/opt/gettext/bin:$PATH"
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+export PATH="$HOME/.bin:$PATH"
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -72,6 +74,7 @@ alias bb="brew bundle -v --global"
 alias ds="docker stop \$(docker ps -a -q)"
 alias dr="docker rm \$(docker ps -a -q)"
 alias fmocha="echo \"\x1B[?25h\""
+alias glb="git checkout \$(git branch --remote | fzf | sed 's/origin\///')"
 alias h="history|grep"
 alias j="jsonnet"
 #alias jb="jsonnet-bundler"
@@ -94,15 +97,17 @@ alias s="bookmark"
 alias dm="deletemark"
 alias lm="showmarks"
 
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                    # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                    # This loads nvm
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 #SLS_TABTAB_DIR="$(npm root -g)/serverless/node_modules/tabtab/.completions"
 #[[ -f ${SLS_TABTAB_DIR}/sls.zsh ]] && . ${SLS_TABTAB_DIR}/sls.zsh
 #[[ -f ${SLS_TABTAB_DIR}/serverless.zsh ]] && . ${SLS_TABTAB_DIR}/serverless.zsh
-export PATH="/usr/local/opt/mongodb-community@4.2/bin:$PATH"
+# export PATH="/usr/local/opt/mongodb-community@4.2/bin:$PATH"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/tk tk
-export PATH="/usr/local/opt/mongodb-community@4.4/bin:$PATH"
-export PATH="/usr/local/opt/libpq/bin:$PATH"
+# export PATH="/usr/local/opt/mongodb-community@4.4/bin:$PATH"
+#export PATH="/usr/local/opt/libpq/bin:$PATH"
+#
+. /usr/local/opt/asdf/libexec/asdf.sh
