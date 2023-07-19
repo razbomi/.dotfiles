@@ -16,23 +16,36 @@ ZSH_THEME="robbyrussell"
 # Try presto if this becomes too slow
 plugins=(
   aws
-  dotenv
+  #dotenv
   git
   kube-ps1
   kubectl
-  kubetail
-  tmux
+  #kubetail
+  #tmux
   fzf
   zsh-autosuggestions
   zsh-syntax-highlighting
+  history-substring-search
   zshmarks
 )
 
 source $ZSH/oh-my-zsh.sh
 
-KUBE_PS1_SYMBOL_ENABLE=false
-RPROMPT=$RPROMPT'$(kube_ps1)'
+EDITOR=vim
+RPROMPT='$(aws_prompt_info)|$(kube_ps1)'
 TERM=xterm-256color
+
+# https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/kube-ps1/README.md
+KUBE_PS1_PREFIX=""
+KUBE_PS1_SUFFIX=""
+KUBE_PS1_SYMBOL_ENABLE=false
+
+# reference: https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/aws/README.md
+ZSH_THEME_AWS_DIVIDER=":"
+ZSH_THEME_AWS_PROFILE_PREFIX=""
+ZSH_THEME_AWS_PROFILE_SUFFIX=""
+ZSH_THEME_AWS_REGION_PREFIX=""
+ZSH_THEME_AWS_REGION_SUFFIX=""
 
 export AWS_DEFAULT_REGION=ap-southeast-2
 export AWS_SDK_LOAD_CONFIG=true
@@ -73,6 +86,7 @@ alias bats="${HOME}/Development/Projects/Mine/bats/bin/bats"
 alias bb="brew bundle -v --global"
 alias ds="docker stop \$(docker ps -a -q)"
 alias dr="docker rm \$(docker ps -a -q)"
+alias ec="${EDITOR} ${HOME}/.zshrc"
 alias fmocha="echo \"\x1B[?25h\""
 alias glb="git checkout \$(git branch --remote | fzf | sed 's/origin\///')"
 alias h="history|grep"
@@ -82,14 +96,12 @@ alias kb="kustomize build --enable-helm"
 alias kc="kustomize completion bash >/etc/bash_completion.d/kustomize"
 alias kx="kubectx"
 alias nv="nvim"
-alias ta="source .env && terragrunt apply || terragrunt apply"
-alias taa="source .env && terragrunt apply -auto-approve || terragrunt apply -auto-approve"
-alias tda="source .env && terragrunt destroy -auto-approve || terragrunt destroy -auto-approve"
+alias sc="source ${HOME}/.zshrc"
+alias ta="terragrunt run-all apply --terragrunt-non-interactive --terragrunt-working-dir"
+alias td="terragrunt run-all destroy --terragrunt-working-dir"
 alias tdel="find . -name '.terra*' -type d -print | xargs rm -rf"
-alias tf="terraform"
-alias tp="source .env && terragrunt plan || terragrunt plan"
-alias tra="source .env && terragrunt run-all apply || terragrunt run-all apply"
-alias trp="source .env && terragrunt run-all plan || terragrunt run-all plan"
+alias tp="terragrunt run-all plan --terragrunt-working-dir"
+alias tu="terragrunt init  -upgrade  --terragrunt-working-dir"
 
 # https://github.com/jocelynmallon/zshmarks#notestips
 alias g="jump"
@@ -105,9 +117,9 @@ alias lm="showmarks"
 #[[ -f ${SLS_TABTAB_DIR}/serverless.zsh ]] && . ${SLS_TABTAB_DIR}/serverless.zsh
 # export PATH="/usr/local/opt/mongodb-community@4.2/bin:$PATH"
 
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/bin/tk tk
+# autoload -U +X bashcompinit && bashcompinit
+# complete -o nospace -C /usr/local/bin/tk tk
 # export PATH="/usr/local/opt/mongodb-community@4.4/bin:$PATH"
-#export PATH="/usr/local/opt/libpq/bin:$PATH"
+# export PATH="/usr/local/opt/libpq/bin:$PATH"
 #
 . /usr/local/opt/asdf/libexec/asdf.sh
