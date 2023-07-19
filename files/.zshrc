@@ -76,11 +76,6 @@ export PATH="$HOME/.bin:$PATH"
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-#
 alias a="alias | grep"
 alias bats="${HOME}/Development/Projects/Mine/bats/bin/bats"
 alias bb="brew bundle -v --global"
@@ -101,7 +96,7 @@ alias ta="terragrunt run-all apply --terragrunt-non-interactive --terragrunt-wor
 alias td="terragrunt run-all destroy --terragrunt-working-dir"
 alias tdel="find . -name '.terra*' -type d -print | xargs rm -rf"
 alias tp="terragrunt run-all plan --terragrunt-working-dir"
-alias tu="terragrunt init  -upgrade  --terragrunt-working-dir"
+alias tu="terragrunt init -upgrade --terragrunt-working-dir"
 
 # https://github.com/jocelynmallon/zshmarks#notestips
 alias g="jump"
@@ -109,17 +104,7 @@ alias s="bookmark"
 alias dm="deletemark"
 alias lm="showmarks"
 
-#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                    # This loads nvm
-#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-#SLS_TABTAB_DIR="$(npm root -g)/serverless/node_modules/tabtab/.completions"
-#[[ -f ${SLS_TABTAB_DIR}/sls.zsh ]] && . ${SLS_TABTAB_DIR}/sls.zsh
-#[[ -f ${SLS_TABTAB_DIR}/serverless.zsh ]] && . ${SLS_TABTAB_DIR}/serverless.zsh
-# export PATH="/usr/local/opt/mongodb-community@4.2/bin:$PATH"
-
 # autoload -U +X bashcompinit && bashcompinit
 # complete -o nospace -C /usr/local/bin/tk tk
-# export PATH="/usr/local/opt/mongodb-community@4.4/bin:$PATH"
-# export PATH="/usr/local/opt/libpq/bin:$PATH"
-#
+
 . /usr/local/opt/asdf/libexec/asdf.sh
