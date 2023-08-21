@@ -20,13 +20,15 @@ plugins=(
   git
   kube-ps1
   kubectl
-  #kubetail
+  kubetail
   #tmux
   fzf
   zsh-autosuggestions
   zsh-syntax-highlighting
   history-substring-search
-  zshmarks
+  z
+  # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/vi-mode#movement
+  vi-mode
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -50,13 +52,13 @@ ZSH_THEME_AWS_REGION_SUFFIX=""
 export AWS_DEFAULT_REGION=ap-southeast-2
 export AWS_SDK_LOAD_CONFIG=true
 export GPG_TTY=$(tty)
-export GOPATH=$HOME/golang
-export GOROOT=/usr/local/opt/go/libexec
-export NVM_DIR="$HOME/.nvm"
+#export GOPATH=$HOME/golang
+#export GOROOT=/usr/local/opt/go/libexec
+#export NVM_DIR="$HOME/.nvm"
 export PATH=/usr/local/bin:$PATH
-export PATH=$PATH:$GOPATH/bin
+#export PATH=$PATH:$GOPATH/bin
 export PATH="/usr/local/opt/gettext/bin:$PATH"
-export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+#export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 export PATH="$HOME/.bin:$PATH"
 
 # Preferred editor for local and remote sessions
@@ -95,16 +97,17 @@ alias sc="source ${HOME}/.zshrc"
 alias ta="terragrunt run-all apply --terragrunt-non-interactive --terragrunt-working-dir"
 alias td="terragrunt run-all destroy --terragrunt-working-dir"
 alias tdel="find . -name '.terra*' -type d -print | xargs rm -rf"
-alias tp="terragrunt run-all plan --terragrunt-working-dir"
+alias tp="terragrunt run-all plan --terragrunt-non-interactive --terragrunt-working-dir"
 alias tu="terragrunt init -upgrade --terragrunt-working-dir"
 
 # https://github.com/jocelynmallon/zshmarks#notestips
-alias g="jump"
-alias s="bookmark"
-alias dm="deletemark"
-alias lm="showmarks"
+#alias g="jump"
+#alias s="bookmark"
+#alias dm="deletemark"
+#alias lm="showmarks"
 
 # autoload -U +X bashcompinit && bashcompinit
 # complete -o nospace -C /usr/local/bin/tk tk
+source <(kubectl completion zsh)
 
 . /usr/local/opt/asdf/libexec/asdf.sh
