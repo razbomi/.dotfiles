@@ -1,0 +1,4 @@
+nodejs 18.14.1
+kubectl 1.21.0
+terragrunt 0.44.5
+terraform 1.4.0

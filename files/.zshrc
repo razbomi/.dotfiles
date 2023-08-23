@@ -98,6 +98,7 @@ alias ta="terragrunt run-all apply --terragrunt-non-interactive --terragrunt-wor
 alias td="terragrunt run-all destroy --terragrunt-working-dir"
 alias tdel="find . -name '.terra*' -type d -print | xargs rm -rf"
 alias tp="terragrunt run-all plan --terragrunt-non-interactive --terragrunt-working-dir"
+alias trm="terragrunt run-all state rm --terragrunt-non-interactive --terragrunt-working-dir"
 alias tu="terragrunt init -upgrade --terragrunt-working-dir"
 
 # https://github.com/jocelynmallon/zshmarks#notestips
@@ -108,6 +109,8 @@ alias tu="terragrunt init -upgrade --terragrunt-working-dir"
 
 # autoload -U +X bashcompinit && bashcompinit
 # complete -o nospace -C /usr/local/bin/tk tk
-source <(kubectl completion zsh)
+
+# https://kubernetes.io/docs/reference/kubectl/cheatsheet/#zsh
+[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
 
 . /usr/local/opt/asdf/libexec/asdf.sh
