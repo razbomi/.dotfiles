@@ -4,7 +4,7 @@ Add new files
 
 ```
 $ cd ~/.dotfiles
-$ ./run.sh
+$ ./run.sh install
 ```
 
 ## Fonts

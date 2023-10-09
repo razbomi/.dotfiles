@@ -16,7 +16,6 @@ plugins=(
   kube-ps1
   kubectl
   kubetail
-  #tmux
   fzf
   zsh-autosuggestions
   zsh-syntax-highlighting
