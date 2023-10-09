@@ -7,7 +7,8 @@ COMPLETION_WAITING_DOTS="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 HIST_STAMPS="yyyy-mm-dd"
 HYPHEN_INSENSITIVE="true"
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
+ZSH_THEME=""
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -27,13 +28,16 @@ plugins=(
   zsh-syntax-highlighting
   history-substring-search
   z
-  # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/vi-mode#movement
-  vi-mode
 )
 
 source $ZSH/oh-my-zsh.sh
 
-EDITOR=vim
+# Initialise pure prompt 
+fpath+=($HOME/.zsh/pure)
+autoload -U promptinit; promptinit
+prompt pure
+
+EDITOR=nvim
 RPROMPT='$(aws_prompt_info)|$(kube_ps1)'
 TERM=xterm-256color
 
@@ -92,14 +96,17 @@ alias j="jsonnet"
 alias kb="kustomize build --enable-helm"
 alias kc="kustomize completion bash >/etc/bash_completion.d/kustomize"
 alias kx="kubectx"
-alias nv="nvim"
+alias n="nvim"
 alias sc="source ${HOME}/.zshrc"
 alias ta="terragrunt run-all apply --terragrunt-non-interactive --terragrunt-working-dir"
 alias td="terragrunt run-all destroy --terragrunt-working-dir"
 alias tdel="find . -name '.terra*' -type d -print | xargs rm -rf"
+alias tim="terragrunt import --terragrunt-working-dir"
 alias tp="terragrunt run-all plan --terragrunt-non-interactive --terragrunt-working-dir"
-alias trm="terragrunt run-all state rm --terragrunt-non-interactive --terragrunt-working-dir"
+alias trm="terragrunt state rm --terragrunt-non-interactive --terragrunt-working-dir"
 alias tu="terragrunt init -upgrade --terragrunt-working-dir"
+alias vi="nvim"
+alias vim="nvim"
 
 # https://github.com/jocelynmallon/zshmarks#notestips
 #alias g="jump"
