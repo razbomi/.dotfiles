@@ -7,17 +7,11 @@ COMPLETION_WAITING_DOTS="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 HIST_STAMPS="yyyy-mm-dd"
 HYPHEN_INSENSITIVE="true"
-# ZSH_THEME="robbyrussell"
 ZSH_THEME=""
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
 # Try presto if this becomes too slow
 plugins=(
   aws
-  #dotenv
   git
   kube-ps1
   kubectl
@@ -77,42 +71,6 @@ export PATH="$HOME/.bin:$PATH"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-alias a="alias | grep"
-alias bats="${HOME}/Development/Projects/Mine/bats/bin/bats"
-alias bb="brew bundle -v --global"
-alias ds="docker stop \$(docker ps -a -q)"
-alias dr="docker rm \$(docker ps -a -q)"
-alias ec="${EDITOR} ${HOME}/.zshrc"
-alias fmocha="echo \"\x1B[?25h\""
-alias glb="git checkout \$(git branch --remote | fzf | sed 's/origin\///')"
-alias h="history|grep"
-alias j="jsonnet"
-#alias jb="jsonnet-bundler"
-alias kb="kustomize build --enable-helm"
-alias kc="kustomize completion bash >/etc/bash_completion.d/kustomize"
-alias kx="kubectx"
-alias n="nvim"
-alias sc="source ${HOME}/.zshrc"
-alias ta="terragrunt run-all apply --terragrunt-non-interactive --terragrunt-working-dir"
-alias td="terragrunt run-all destroy --terragrunt-working-dir"
-alias tdel="find . -name '.terra*' -type d -print | xargs rm -rf"
-alias tim="terragrunt import --terragrunt-working-dir"
-alias tp="terragrunt run-all plan --terragrunt-non-interactive --terragrunt-working-dir"
-alias trm="terragrunt state rm --terragrunt-non-interactive --terragrunt-working-dir"
-alias tu="terragrunt init -upgrade --terragrunt-working-dir"
-alias vi="nvim"
-alias vim="nvim"
-
-# https://github.com/jocelynmallon/zshmarks#notestips
-#alias g="jump"
-#alias s="bookmark"
-#alias dm="deletemark"
-#alias lm="showmarks"
 
 # autoload -U +X bashcompinit && bashcompinit
 # complete -o nospace -C /usr/local/bin/tk tk
