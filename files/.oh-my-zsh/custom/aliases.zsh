@@ -7,7 +7,7 @@ alias fmocha="echo \"\x1B[?25h\""
 alias glb="git checkout \$(git branch --remote | fzf | sed 's/origin\///')"
 alias h="history|grep"
 alias j="jsonnet"
-#alias jb="jsonnet-bundler"
+alias jb="jsonnet-bundler"
 alias kb="kustomize build --enable-helm"
 alias kc="kustomize completion bash >/etc/bash_completion.d/kustomize"
 alias kx="kubectx"
@@ -22,11 +22,4 @@ alias trm="terragrunt state rm --terragrunt-non-interactive --terragrunt-working
 alias tu="terragrunt init -upgrade --terragrunt-working-dir"
 alias vi="nvim"
 alias vim="nvim"
-
-# https://github.com/jocelynmallon/zshmarks#notestips
-#alias g="jump"
-#alias s="bookmark"
-#alias dm="deletemark"
-#alias lm="showmarks"
-
 
