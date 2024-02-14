@@ -78,3 +78,11 @@ export PATH="$HOME/.bin:$PATH"
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
 
 . /usr/local/opt/asdf/libexec/asdf.sh
+
+# bun completions
+[ -s "/Users/mitko/.bun/_bun" ] && source "/Users/mitko/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH="/usr/local/opt/libpq/bin:$PATH"

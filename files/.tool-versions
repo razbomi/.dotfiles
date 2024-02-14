@@ -1,5 +1,6 @@
-nodejs 18.14.1
+nodejs 18.18.2
 kubectl 1.21.0
+kustomize 5.1.1
 terragrunt 0.44.5
 terraform 1.4.0
 golang 1.21.0
