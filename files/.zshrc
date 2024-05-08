@@ -32,7 +32,7 @@ prompt pure
 
 EDITOR=nvim
 RPROMPT='$(aws_prompt_info)|$(kube_ps1)'
-TERM=xterm-256color
+# TERM=xterm-256color
 
 # https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/kube-ps1/README.md
 KUBE_PS1_PREFIX=""
@@ -51,38 +51,26 @@ export AWS_SDK_LOAD_CONFIG=true
 export GPG_TTY=$(tty)
 #export GOPATH=$HOME/golang
 #export GOROOT=/usr/local/opt/go/libexec
-#export NVM_DIR="$HOME/.nvm"
-export PATH=/usr/local/bin:$PATH
 #export PATH=$PATH:$GOPATH/bin
-export PATH="/usr/local/opt/gettext/bin:$PATH"
-#export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
-export PATH="$HOME/.bin:$PATH"
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-# autoload -U +X bashcompinit && bashcompinit
-# complete -o nospace -C /usr/local/bin/tk tk
 
 # https://kubernetes.io/docs/reference/kubectl/cheatsheet/#zsh
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
 
 . /usr/local/opt/asdf/libexec/asdf.sh
 
-# bun completions
-[ -s "/Users/mitko/.bun/_bun" ] && source "/Users/mitko/.bun/_bun"
-
 # bun
+[ -s "/Users/mitko/.bun/_bun" ] && source "/Users/mitko/.bun/_bun"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+export PATH="/usr/local/opt/gettext/bin:$PATH"
+export PATH=/usr/local/bin:$PATH
 export PATH="/usr/local/opt/libpq/bin:$PATH"
+
+# tmux
+if [[ -z "$TMUX" ]]; then
+  export TERM=xterm-256color
+
+  tmux new-session -A -s "$USER"
+fi
+
