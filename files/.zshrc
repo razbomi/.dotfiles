@@ -15,7 +15,6 @@ plugins=(
   git
   # kube-ps1
   kubectl
-  # kubetail
   fzf
   zsh-autosuggestions
   zsh-syntax-highlighting
@@ -32,12 +31,11 @@ prompt pure
 
 EDITOR=nvim
 # RPROMPT='$(aws_prompt_info)|$(kube_ps1)'
-# TERM=xterm-256color
 
 # https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/kube-ps1/README.md
-KUBE_PS1_PREFIX=""
-KUBE_PS1_SUFFIX=""
-KUBE_PS1_SYMBOL_ENABLE=off
+# KUBE_PS1_PREFIX=""
+# KUBE_PS1_SUFFIX=""
+# KUBE_PS1_SYMBOL_ENABLE=off
 
 # reference: https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/aws/README.md
 export SHOW_AWS_PROMPT=false
@@ -52,22 +50,24 @@ export AWS_STATE_FILE="${HOME}/.aws_current_profile"
 export AWS_DEFAULT_REGION=ap-southeast-2
 export AWS_SDK_LOAD_CONFIG=true
 export GPG_TTY=$(tty)
-#export GOPATH=$HOME/golang
-#export GOROOT=/usr/local/opt/go/libexec
-#export PATH=$PATH:$GOPATH/bin
 
 # https://kubernetes.io/docs/reference/kubectl/cheatsheet/#zsh
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
 
 . /usr/local/opt/asdf/libexec/asdf.sh
 
+# This comes from above now
+#export GOPATH=$HOME/golang
+#export GOROOT=/usr/local/opt/go/libexec
+#export PATH=$PATH:$GOPATH/bin
+
 # bun
 [ -s "/Users/mitko/.bun/_bun" ] && source "/Users/mitko/.bun/_bun"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
+export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/opt/gettext/bin:$PATH"
-export PATH=/usr/local/bin:$PATH
 export PATH="/usr/local/opt/libpq/bin:$PATH"
 
 # tmux
