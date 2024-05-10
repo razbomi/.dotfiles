@@ -1,16 +1,17 @@
 local plugins = {
 	{
 		"stevearc/conform.nvim",
-		event = 'BufWritePre',
+		event = "BufWritePre",
+		cmd = { "ConformInfo" },
 		config = function()
-		  require "configs.conform"
+			require("configs.conform")
 		end,
-	  },
+	},
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
 			require("nvchad.configs.lspconfig").defaults()
-			require "configs.lspconfig"
+			require("configs.lspconfig")
 		end,
 	},
 	{
@@ -29,7 +30,7 @@ local plugins = {
 
 				"terraform-ls",
 				"yaml-language-server",
-       
+
 				"typescript-language-server",
 				"prettier",
 			},
@@ -61,7 +62,7 @@ local plugins = {
 		"alexghergh/nvim-tmux-navigation",
 		event = "VeryLazy",
 		config = function()
-			require "configs.nvim-tmux-navigation"
+			require("configs.nvim-tmux-navigation")
 		end,
 	},
 }

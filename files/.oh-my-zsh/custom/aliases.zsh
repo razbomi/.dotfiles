@@ -1,5 +1,6 @@
 alias a="alias | grep"
 alias ec="vi ${HOME}/.zshrc"
+alias dot="cd ~/.dotfiles/"
 alias fmocha="echo \"\x1B[?25h\""
 alias glb="git checkout \$(git branch --remote | fzf | sed 's/origin\///')"
 alias h="history 1|grep"
