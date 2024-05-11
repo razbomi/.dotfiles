@@ -55,6 +55,9 @@ local plugins = {
 
 				"javascript",
 				"typescript",
+
+				"markdown",
+				"markdown_inline",
 			},
 		},
 	},
@@ -63,6 +66,30 @@ local plugins = {
 		event = "VeryLazy",
 		config = function()
 			require("configs.nvim-tmux-navigation")
+		end,
+	},
+	{ "b0o/schemastore.nvim" },
+	{ "someone-stole-my-name/yaml-companion.nvim" },
+	{
+		"folke/trouble.nvim",
+		cmd = "Trouble",
+		branch = "dev",
+		keys = {
+			{
+				"<leader>cl",
+				"<cmd>Trouble lsp toggle focus=false<cr>",
+				-- "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+				desc = "trouble toggle lsp",
+			},
+			{
+				"<leader>cx",
+				"<cmd>Trouble diagnostics toggle<cr>",
+				desc = "trouble toggle diagnostics",
+			},
+		},
+		config = function()
+			dofile(vim.g.base46_cache .. "trouble")
+			require("trouble").setup()
 		end,
 	},
 }

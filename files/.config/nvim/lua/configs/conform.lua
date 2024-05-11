@@ -2,20 +2,16 @@ local options = {
 	formatters_by_ft = {
 		go = { "goimports", "gofmt" },
 		hcl = { "terragrunt_hclfmt" },
-		javascript = { "prettier" },
-		javascriptreact = { "prettier" },
+		javascript = { { "prettierd", "prettier" } },
+		javascriptreact = { { "prettierd", "prettier" } },
 		lua = { "stylua" },
 		tf = { "terraform_fmt" },
-		typescript = { "prettier" },
-		typescriptreact = { "prettier" },
+		typescript = { { "prettierd", "prettier" } },
+		typescriptreact = { { "prettierd", "prettier" } },
 	},
 
 	format_on_save = {
-		timeout_ms = 500,
-		lsp_fallback = true,
-	},
-
-	format_after_save = {
+		timeout_ms = 5000,
 		lsp_fallback = true,
 	},
 
