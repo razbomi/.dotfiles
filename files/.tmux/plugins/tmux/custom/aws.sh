@@ -1,11 +1,11 @@
 show_aws() {
+  local index icon color text module
 
-  local index=$1
-  local icon="$(get_tmux_option "@catppuccin_test_icon" "󰸏")"
-  local color="$(get_tmux_option "@catppuccin_test_color" "$thm_orange")"
-  local text="$(get_tmux_option "@catppuccin_test_text" "#( cat ~/.aws_current_profile )")"
+  index=$1
+  icon="$(get_tmux_option "@catppuccin_aws_icon" "󰸏")"
+  color="$(get_tmux_option "@catppuccin_aws_color" "$thm_orange")"
+  text="$(get_tmux_option "@catppuccin_aws_text" "#[fg=$thm_orange]#( cut -f 1 -d \" \" ~/.aws_current_profile ) #[fg=$thm_yellow]#( cut -f 2 -d \" \" ~/.aws_current_profile )")"
 
-  local module=$(build_status_module "$index" "$icon" "$color" "$text")
-
+  module=$(build_status_module "$index" "$icon" "$color" "$text")
   echo "${module}"
 }

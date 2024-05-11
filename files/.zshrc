@@ -52,7 +52,7 @@ export AWS_SDK_LOAD_CONFIG=true
 export GPG_TTY=$(tty)
 
 # https://kubernetes.io/docs/reference/kubectl/cheatsheet/#zsh
-[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+# [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
 
 . /usr/local/opt/asdf/libexec/asdf.sh
 

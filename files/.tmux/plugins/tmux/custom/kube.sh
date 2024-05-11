@@ -1,10 +1,11 @@
 show_kube() {
-  local index=$1
-  local icon="$(get_tmux_option "@catppuccin_test_icon" "󱃾")"
-  local color="$(get_tmux_option "@catppuccin_test_color" "$thm_blue")"
-  local text="$(get_tmux_option "@catppuccin_test_text" "#(kubectl config current-context) #(kubectl config view --minify --output 'jsonpath={..namespace}')")"
+  local index icon color text module
 
-  local module=$( build_status_module "$index" "$icon" "$color" "$text" )
+  index=$1
+  icon="$(get_tmux_option "@catppuccin_kube_icon" "󱃾")"
+  color="$(get_tmux_option "@catppuccin_kube_color" "$thm_blue")"
+  text="$(get_tmux_option "@catppuccin_kube_text" "#[fg=$thm_blue]#(kubectl config current-context) #[fg=$thm_cyan]#(kubectl config view --minify --output 'jsonpath={..namespace}')")"
 
+  module=$( build_status_module "$index" "$icon" "$color" "$text" )
   echo "$module"
 }
