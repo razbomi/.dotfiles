@@ -18,7 +18,7 @@ alias tiu="terragrunt run-all init -upgrade --terragrunt-disable-bucket-update -
 alias tp="terragrunt run-all plan --terragrunt-disable-bucket-update --terragrunt-provider-cache --terragrunt-non-interactive --terragrunt-working-dir"
 alias trm="terragrunt state rm --terragrunt-non-interactive --terragrunt-disable-bucket-update --terragrunt-working-dir"
 alias v="nvim"
-alias vi="nvim"
-alias vim="nvim"
+alias vi="v"
+alias vim="v"
 yn() { yq eval ". | select(.metadata.name == \"$1\")" }
 yk() { yq eval ". | select(.kind == \"$1\")" }

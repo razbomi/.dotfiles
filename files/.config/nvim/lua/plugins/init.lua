@@ -89,7 +89,27 @@ local plugins = {
 		},
 		config = function()
 			dofile(vim.g.base46_cache .. "trouble")
-			require("trouble").setup()
+			require("trouble").setup({ use_diagnostic_signs = true })
+		end,
+	},
+	{
+		"rmagatti/auto-session",
+		cmd = {
+			"SessionSave",
+			"SessionRestore",
+		},
+		config = function()
+			require("auto-session").setup({
+				log_level = "info",
+				auto_session_enable_last_session = false,
+				auto_session_root_dir = vim.fn.stdpath("data") .. "/auto_session/",
+				auto_session_enabled = false,
+				auto_save_enabled = false,
+				auto_restore_enabled = false,
+				auto_session_suppress_dirs = nil,
+				pre_save_cmds = { "tabdo NvimTreeClose" },
+				-- post_restore_cmds = { "tabdo NvimTreeRefresh" },
+			})
 		end,
 	},
 }
