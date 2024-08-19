@@ -1,6 +1,9 @@
-nodejs 18.18.2
-kubectl 1.29.0
-kustomize 5.1.1
-terragrunt 0.57.2
-terraform 1.5.0
 golang 1.21.0
+java openjdk-22
+kubectl 1.29.7
+kustomize 5.2.1
+nodejs 22.1.0
+terraform 1.5.0
+terragrunt 0.58.12
+yarn 1.22.22
+

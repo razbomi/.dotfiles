@@ -49,6 +49,7 @@ local yamlconfig = require("yaml-companion").setup({
 			schemas = require("schemastore").yaml.schemas({
 				-- https://github.com/b0o/SchemaStore.nvim/blob/main/lua/schemastore/catalog.lua
 				select = {
+					"AWS CloudFormation",
 					"Buildkite",
 					"docker-compose.yml",
 					"GitHub Action",
