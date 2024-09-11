@@ -6,7 +6,7 @@ alias dot="cd ~/.dotfiles/"
 alias h="history 1|grep"
 alias j="jsonnet"
 alias jb="jsonnet-bundler"
-alias kb="kustomize build --enable-helm"
+alias kb="kustomize build --enable-helm --load-restrictor=LoadRestrictionsNone"
 alias kc="kustomize completion bash >/etc/bash_completion.d/kustomize"
 alias kgsecab64d="kgsec -o json | jq '.items | map({name: .metadata.name, env: (.data | to_entries | map(. | {(.key): (.value | @base64d)}) | reduce .[] as \$i ({}; . + \$i)) })'"
 kafka-consumer-groups() { keti "$(kubectl get pods -l app.kubernetes.io/name=kafka-connect -n kafka -o name | tail -1 | sed  's/pod\///g')" -n kafka -c cp-kafka-connect-server -- kafka-consumer-groups --bootstrap-server b-1:9092 $@ }
