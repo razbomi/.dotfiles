@@ -77,7 +77,6 @@ local plugins = {
 	{
 		"folke/trouble.nvim",
 		cmd = "Trouble",
-		branch = "dev",
 		keys = {
 			{
 				"<leader>cl",
@@ -96,26 +95,6 @@ local plugins = {
 			require("trouble").setup({ use_diagnostic_signs = true })
 		end,
 	},
-	-- {
-	-- 	"rmagatti/auto-session",
-	-- 	cmd = {
-	-- 		"SessionSave",
-	-- 		"SessionRestore",
-	-- 	},
-	-- 	config = function()
-	-- 		require("auto-session").setup({
-	-- 			log_level = "info",
-	-- 			auto_session_enable_last_session = false,
-	-- 			auto_session_root_dir = vim.fn.stdpath("data") .. "/auto_session/",
-	-- 			auto_session_enabled = false,
-	-- 			auto_save_enabled = false,
-	-- 			auto_restore_enabled = false,
-	-- 			auto_session_suppress_dirs = nil,
-	-- 			pre_save_cmds = { "tabdo NvimTreeClose" },
-	-- 			-- post_restore_cmds = { "tabdo NvimTreeRefresh" },
-	-- 		})
-	-- 	end,
-	-- },
 }
 
 return plugins
