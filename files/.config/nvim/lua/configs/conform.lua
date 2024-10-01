@@ -1,10 +1,18 @@
 local options = {
+	formatters = {
+		shfmt = {
+			prepend_args = { "-i", "2", "-ci", "-bn" },
+		},
+	},
+
 	formatters_by_ft = {
 		go = { "goimports", "gofmt" },
 		hcl = { "terragrunt_hclfmt" },
 		javascript = { "prettierd", "prettier", stop_after_first = true },
 		javascriptreact = { "prettierd", "prettier", stop_after_first = true },
 		lua = { "stylua" },
+		python = { "isort", "black" },
+		sh = { "shfmt" },
 		tf = { "terraform_fmt" },
 		typescript = { "prettierd", "prettier", stop_after_first = true },
 		typescriptreact = { "prettierd", "prettier", stop_after_first = true },
