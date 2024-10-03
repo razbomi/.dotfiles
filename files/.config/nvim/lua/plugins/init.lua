@@ -13,28 +13,6 @@ local plugins = {
 		end,
 	},
 	-- {
-	-- 	"williamboman/mason.nvim",
-	-- 	opts = {
-	-- 		ensure_installed = {
-	-- 			"lua-language-server",
-	-- 			"stylua",
-	--
-	-- 			"gopls",
-	-- 			"goimports",
-	--
-	-- 			"bash-language-server",
-	-- 			"shfmt",
-	-- 			"shellcheck",
-	--
-	-- 			"ts-ls",
-	-- 			"yaml-language-server",
-	--
-	-- 			"typescript-language-server",
-	-- 			"prettier",
-	-- 		},
-	-- 	},
-	-- },
-	-- {
 	-- 	"nvim-treesitter/nvim-treesitter",
 	-- 	opts = {
 	-- 		ensure_installed = {

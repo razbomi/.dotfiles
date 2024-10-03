@@ -1,11 +1,12 @@
--- Clear data folder for fresh install
--- rm -rf ~/.local/share/nvim
-vim.g.base46_cache = vim.fn.stdpath("data") .. "/nvchad/base46/"
+--- Clear data folder for fresh install
+--- rm -rf ~/.local/share/nvim
+--- rm -rf ~/.local/state/nvim
+vim.g.base46_cache = vim.fn.stdpath("data") .. "/base46/"
 vim.g.mapleader = " "
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
-if not vim.loop.fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
 	local repo = "https://github.com/folke/lazy.nvim.git"
 	vim.fn.system({ "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath })
 end
@@ -20,17 +21,17 @@ require("lazy").setup({
 		lazy = false,
 		branch = "v2.5",
 		import = "nvchad.plugins",
-		config = function()
-			require("options")
-		end,
 	},
 
 	{ import = "plugins" },
 }, lazy_config)
 
+dofile(vim.g.base46_cache .. "syntax")
 dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
 
+require("options")
+-- require("nvchad.autocmds")
 require("autocmds")
 
 vim.schedule(function()
