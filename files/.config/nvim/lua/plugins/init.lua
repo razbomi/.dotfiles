@@ -12,31 +12,32 @@ local plugins = {
 			require("configs.lspconfig")
 		end,
 	},
-	-- {
-	-- 	"nvim-treesitter/nvim-treesitter",
-	-- 	opts = {
-	-- 		ensure_installed = {
-	-- 			"bash",
-	--
-	-- 			"go",
-	-- 			"gomod",
-	-- 			"gosum",
-	-- 			"gowork",
-	--
-	-- 			"hcl",
-	-- 			"terraform",
-	--
-	-- 			"json",
-	-- 			"yaml",
-	--
-	-- 			"javascript",
-	-- 			"typescript",
-	--
-	-- 			"markdown",
-	-- 			"markdown_inline",
-	-- 		},
-	-- 	},
-	-- },
+	{
+		"nvim-treesitter/nvim-treesitter",
+		opts = {
+			ensure_installed = {
+				"jsonnet",
+				-- 			"bash",
+				--
+				-- 			"go",
+				-- 			"gomod",
+				-- 			"gosum",
+				-- 			"gowork",
+				--
+				-- "hcl",
+				-- "terraform",
+				--
+				-- 			"json",
+				-- 			"yaml",
+				--
+				-- 			"javascript",
+				-- 			"typescript",
+				--
+				-- 			"markdown",
+				-- 			"markdown_inline",
+			},
+		},
+	},
 	{
 		"lewis6991/gitsigns.nvim",
 		opts = {

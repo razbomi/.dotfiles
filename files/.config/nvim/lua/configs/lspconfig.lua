@@ -4,6 +4,7 @@ local lspconfig = require("lspconfig")
 local servers = {
 	bashls = {},
 	gopls = {},
+	jsonnet_ls = {},
 	pyright = {},
 	terraformls = {},
 	ts_ls = {},
