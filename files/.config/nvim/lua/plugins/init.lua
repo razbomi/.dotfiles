@@ -17,24 +17,24 @@ local plugins = {
 		opts = {
 			ensure_installed = {
 				"jsonnet",
-				-- 			"bash",
-				--
-				-- 			"go",
-				-- 			"gomod",
-				-- 			"gosum",
-				-- 			"gowork",
-				--
-				-- "hcl",
-				-- "terraform",
-				--
-				-- 			"json",
-				-- 			"yaml",
-				--
-				-- 			"javascript",
-				-- 			"typescript",
-				--
-				-- 			"markdown",
-				-- 			"markdown_inline",
+				"bash",
+
+				"go",
+				"gomod",
+				"gosum",
+				"gowork",
+
+				"hcl",
+				"terraform",
+
+				"json",
+				"yaml",
+
+				"javascript",
+				"typescript",
+
+				"markdown",
+				"markdown_inline",
 			},
 		},
 	},
