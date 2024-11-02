@@ -1,4 +1,5 @@
 alias a="alias | grep"
+alias asdf="mise"
 # alias ec="vi ${HOME}/.zshrc"
 alias dot="cd ~/.dotfiles/"
 # alias fmocha="echo \"\x1B[?25h\""

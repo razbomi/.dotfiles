@@ -44,8 +44,7 @@ export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/opt/gettext/bin:$PATH"
 export PATH="/usr/local/opt/libpq/bin:$PATH"
 
-. /usr/local/opt/asdf/libexec/asdf.sh
-. ~/.asdf/plugins/golang/set-env.zsh
+eval "$(/usr/local/bin/mise activate zsh)"
 
 if [[ -z "$TMUX" ]]; then
   export TERM=xterm-256color

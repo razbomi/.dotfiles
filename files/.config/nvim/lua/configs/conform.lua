@@ -10,12 +10,14 @@ local options = {
 		hcl = { "terragrunt_hclfmt" },
 		javascript = { "prettierd", "prettier", stop_after_first = true },
 		javascriptreact = { "prettierd", "prettier", stop_after_first = true },
+		json = { "prettierd", "prettier", stop_after_first = true },
 		lua = { "stylua" },
 		python = { "isort", "black" },
 		sh = { "shfmt" },
 		tf = { "terraform_fmt" },
 		typescript = { "prettierd", "prettier", stop_after_first = true },
 		typescriptreact = { "prettierd", "prettier", stop_after_first = true },
+		yaml = { "prettierd", "prettier", stop_after_first = true },
 	},
 
 	format_on_save = {
