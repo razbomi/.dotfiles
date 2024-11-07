@@ -1,9 +1,8 @@
 golang 1.21.0
 java openjdk-22
 kubectl 1.29.7
-kustomize 5.2.1
+kustomize 5.5.0
 nodejs 22.1.0
-terraform 1.5.0
-terragrunt 0.58.12
+terraform 1.9.8
+terragrunt 0.68.7
 yarn 1.22.22
-
