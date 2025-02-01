@@ -41,13 +41,16 @@ export GPG_TTY=$(tty)
 # [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
 
 export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/gettext/bin:$PATH"
 export PATH="/usr/local/opt/libpq/bin:$PATH"
 
 eval "$(/usr/local/bin/mise activate zsh)"
 
-if [[ -z "$TMUX" ]]; then
-  export TERM=xterm-256color
-  tmux new-session -A -s "$USER"
+if [[ "$TERMINAL_EMULATOR" != "JetBrains-JediTerm" ]]; then
+  if [[ -z "$TMUX" ]]; then
+    # export TERM=xterm-256color
+    tmux new-session -A -s "$USER"
+  fi
 fi
 
