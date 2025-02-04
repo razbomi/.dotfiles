@@ -13,8 +13,10 @@ ZSH_THEME=""
 # Try presto if this becomes too slow
 plugins=(
   aws
+  brew
   git
   kubectl
+  mise
   fzf
   zsh-autosuggestions
   zsh-syntax-highlighting
@@ -40,12 +42,12 @@ export GPG_TTY=$(tty)
 # https://kubernetes.io/docs/reference/kubectl/cheatsheet/#zsh
 # [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
 
-export PATH="/usr/local/bin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
-export PATH="/usr/local/opt/gettext/bin:$PATH"
-export PATH="/usr/local/opt/libpq/bin:$PATH"
+# export PATH="/usr/local/bin:$PATH"
+# export PATH="/usr/local/sbin:$PATH"
+# export PATH="/usr/local/opt/gettext/bin:$PATH"
+# export PATH="/usr/local/opt/libpq/bin:$PATH"
 
-eval "$(/usr/local/bin/mise activate zsh)"
+# eval "$(/usr/local/bin/mise activate zsh)"
 
 if [[ "$TERMINAL_EMULATOR" != "JetBrains-JediTerm" ]]; then
   if [[ -z "$TMUX" ]]; then
