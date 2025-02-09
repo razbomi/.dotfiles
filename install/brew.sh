@@ -10,4 +10,4 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 brew update
 brew upgrade
-brew bundle install --file="$(git rev-parse --show-toplevel)/files/.homebrew/Brewfile"
+brew bundle install --file="$(git rev-parse --show-toplevel)/files/Brewfile"

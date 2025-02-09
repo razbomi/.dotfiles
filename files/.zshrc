@@ -1,5 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=/opt/homebrew/bin:$PATH
+export PATH=/opt/homebrew/sbin:$PATH
 export ZSH="/${HOME}/.oh-my-zsh"
 
 CASE_SENSITIVE="true"
@@ -14,20 +16,22 @@ ZSH_THEME=""
 plugins=(
   aws
   brew
+  fzf
   git
   kubectl
   mise
-  fzf
-  zsh-autosuggestions
-  zsh-syntax-highlighting
-  history-substring-search
   z
 )
+
+# https://github.com/zsh-users
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 source $ZSH/oh-my-zsh.sh
 
 # https://github.com/sindresorhus/pure?tab=readme-ov-file#oh-my-zsh
-fpath+=($HOME/.zsh/pure)
+# fpath+=("$(brew --prefix)/share/zsh/site-functions")
 autoload -U promptinit; promptinit
 prompt pure
 
@@ -44,8 +48,6 @@ export GPG_TTY=$(tty)
 
 # export PATH="/usr/local/bin:$PATH"
 # export PATH="/usr/local/sbin:$PATH"
-# export PATH="/usr/local/opt/gettext/bin:$PATH"
-# export PATH="/usr/local/opt/libpq/bin:$PATH"
 
 # eval "$(/usr/local/bin/mise activate zsh)"
 
