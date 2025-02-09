@@ -1,5 +1,6 @@
 alias a="alias | grep"
 alias asdf="mise"
+alias c="clear"
 alias dc="docker compose"
 alias dcdn="dc down"
 alias dcup="dc up"
@@ -31,3 +32,7 @@ alias vi="v"
 alias vim="v"
 yn() { yq eval ". | select(.metadata.name == \"$1\")" }
 yk() { yq eval ". | select(.kind == \"$1\")" }
+
+# Find a way to install withou omzhs
+unalias z
+z() { cd $(zshz -l $1 2>&1 | fzf | cut -w -f2) }
