@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=/opt/homebrew/bin:$PATH
 export PATH=/opt/homebrew/sbin:$PATH
-export ZSH="/${HOME}/.oh-my-zsh"
+export ZSH="${HOME}/.oh-my-zsh"
 
 CASE_SENSITIVE="true"
 COMPLETION_WAITING_DOTS="true"
