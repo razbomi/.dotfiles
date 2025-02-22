@@ -15,11 +15,13 @@ $ ./run tools
 ```
 
 Add to `files/Brewfile` for new deps.
+
 Subsequent `./run tools` will upgrade.
 
 ### Add new config
 
 Link config from `files` folder.
+
 Unlink to uninstall using `./run clean`.
 
 
