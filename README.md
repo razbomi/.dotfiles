@@ -4,8 +4,10 @@ Currently arm mac only (brew paths are different).
 
 ### Fresh install
 
-Clone into the `$HOME` folder.
+Add to `files/Brewfile` for new deps. 
+Subsequent `./run tools` will upgrade. 
 
+Clone into the `$HOME` folder.
 
 ```
 $ git clone git@github.com:razbomi/.dotfiles.git
@@ -14,16 +16,10 @@ $ ./run tools
 
 ```
 
-Add to `files/Brewfile` for new deps.
-
-Subsequent `./run tools` will upgrade.
-
 ### Add new config
 
-Link config from `files` folder.
-
+Link config from `files` folder. 
 Unlink to uninstall using `./run clean`.
-
 
 ```
 $ cd ~/.dotfiles
