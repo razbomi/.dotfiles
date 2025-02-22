@@ -4,24 +4,28 @@ Currently arm mac only (brew paths are different).
 
 ### Fresh install
 
-From `$HOME` folder.
+Clone into the `$HOME` folder.
+
 
 ```
 $ git clone git@github.com:razbomi/.dotfiles.git
 $ cd ~/.dotfiles
-$ ./run.sh tools
+$ ./run tools
 
 ```
 
-Subsequently `tools` will upgrade.
+Add to `files/Brewfile` for new deps.
+Subsequent `./run tools` will upgrade.
 
-### Add new files
+### Add new config
 
-Link new config from `files` folder
+Link config from `files` folder.
+Unlink to uninstall using `./run clean`.
+
 
 ```
 $ cd ~/.dotfiles
-$ ./run.sh install
+$ ./run install
 ```
 
 ### NVim Distros

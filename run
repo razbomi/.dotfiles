@@ -19,7 +19,7 @@ target_tools() {
 
 help_message() {
   local command=$0
-  cat <<EOF
+  cat << EOF
 usage: ${command} <target>
 
 target:
@@ -29,7 +29,7 @@ target:
 EOF
 }
 
-if type "target_$1" >/dev/null; then
+if type "target_$1" > /dev/null; then
   "target_$1" "${@:2}"
 else
   help_message "$1"
