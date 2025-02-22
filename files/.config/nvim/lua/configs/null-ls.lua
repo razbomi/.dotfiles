@@ -10,6 +10,8 @@ local sources = {
 	formatting.goimports,
 
 	formatting.shfmt,
+
+	-- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTIN_CONFIG.md#diagnostic-config
 	lint.shellcheck.with({ diagnostics_format = "#{m} [#{c}]" }),
 
 	-- formatting.rustfmt,

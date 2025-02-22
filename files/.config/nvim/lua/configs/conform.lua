@@ -1,7 +1,7 @@
 local options = {
 	formatters = {
 		shfmt = {
-			prepend_args = { "-i", "2", "-ci", "-bn" },
+			prepend_args = { "-i", "2", "-ci", "-bn", "-sr" },
 		},
 	},
 

@@ -12,15 +12,20 @@ target_clean() {
   stow -vD files
 }
 
+target_tools() {
+  ($INSTALL_DIR/install/ohmyzsh.sh)
+  ($INSTALL_DIR/install/brew.sh)
+}
+
 help_message() {
   local command=$0
   cat <<EOF
 usage: ${command} <target>
 
 target:
-   clean    --  Remove symlinks from install folder
-   install  --  Link files to install folder
-   tools    -- Install or update tools
+   clean    --  Remove symlinks to dotfiles
+   install  --  Link dotfiles to install folder
+   tools    --  Install or update tools
 EOF
 }
 
