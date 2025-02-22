@@ -1,4 +1,4 @@
-# Dot files
+## .dotfiles
 
 Currently arm mac only (brew paths are different).
 
