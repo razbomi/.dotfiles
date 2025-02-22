@@ -4,8 +4,8 @@ Currently arm mac only (brew paths are different).
 
 ### Fresh install
 
-Add to `files/Brewfile` for new deps. 
-Subsequent `./run tools` will upgrade. 
+Add to `files/Brewfile` for new deps.    
+Subsequent `./run tools` will upgrade.  
 
 Clone into the `$HOME` folder.
 
@@ -18,7 +18,7 @@ $ ./run tools
 
 ### Add new config
 
-Link config from `files` folder. 
+Link config from `files` folder.  
 Unlink to uninstall using `./run clean`.
 
 ```
