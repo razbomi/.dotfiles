@@ -78,6 +78,21 @@ local plugins = {
 			require("trouble").setup({ use_diagnostic_signs = true })
 		end,
 	},
+	{
+		"folke/todo-comments.nvim",
+		event = "VeryLazy",
+		config = function()
+			require("todo-comments").setup({
+				highlight = {
+					before = "",
+					keyword = "fg",
+					after = "",
+					pattern = [[.*<(KEYWORDS)\s*:]],
+					comments_only = true,
+				},
+			})
+		end,
+	},
 }
 
 return plugins

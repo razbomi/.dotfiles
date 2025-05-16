@@ -17,6 +17,10 @@ M.base46 = {
 		"trouble",
 	},
 	theme = "catppuccin",
+	hl_override = {
+		Comment = { italic = true, fg = "#a6adc8" },
+		["@comment"] = { italic = true, fg = "#a6adc8" },
+		["@comment.documentation"] = { italic = true, fg = "#b5c1d8" },
+	},
 }
-
 return M

@@ -13,8 +13,8 @@ target_clean() {
 }
 
 target_tools() {
-  ($INSTALL_DIR/install/ohmyzsh.sh)
-  ($INSTALL_DIR/install/brew.sh)
+  ("$INSTALL_DIR/install/ohmyzsh.sh")
+  ("$INSTALL_DIR/install/brew.sh")
 }
 
 help_message() {

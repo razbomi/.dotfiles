@@ -58,11 +58,8 @@ export FZF_DEFAULT_OPTS=" \
 # export PATH="/usr/local/bin:$PATH"
 # export PATH="/usr/local/sbin:$PATH"
 
-# eval "$(/usr/local/bin/mise activate zsh)"
-
 if [[ "$TERMINAL_EMULATOR" != "JetBrains-JediTerm" ]]; then
   if [[ -z "$TMUX" ]]; then
-    # export TERM=xterm-256color
     tmux new-session -A -s "$USER"
   fi
 fi

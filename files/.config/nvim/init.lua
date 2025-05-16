@@ -1,6 +1,7 @@
 --- Clear data folder for fresh install
 --- rm -rf ~/.local/share/nvim
 --- rm -rf ~/.local/state/nvim
+--- nvim +"Lazy sync" +q
 vim.g.base46_cache = vim.fn.stdpath("data") .. "/base46/"
 vim.g.mapleader = " "
 
@@ -31,7 +32,6 @@ dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
 
 require("options")
--- require("nvchad.autocmds")
 require("autocmds")
 
 vim.schedule(function()
