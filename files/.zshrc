@@ -1,7 +1,5 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=/opt/homebrew/bin:$PATH
 export PATH=/opt/homebrew/sbin:$PATH
+export PATH=/opt/homebrew/bin:$PATH
 export ZSH="${HOME}/.oh-my-zsh"
 
 CASE_SENSITIVE="true"
@@ -18,6 +16,7 @@ plugins=(
   brew
   fzf
   git
+  jj 
   kubectl
   mise
   z
@@ -27,7 +26,6 @@ plugins=(
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-
 source $ZSH/oh-my-zsh.sh
 
 # https://github.com/sindresorhus/pure?tab=readme-ov-file#oh-my-zsh
