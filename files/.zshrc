@@ -1,6 +1,7 @@
-export PATH=/opt/homebrew/sbin:$PATH
-export PATH=/opt/homebrew/bin:$PATH
-export ZSH="${HOME}/.oh-my-zsh"
+export PATH="/opt/homebrew/sbin:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export ZSH="$HOME/.oh-my-zsh"
 
 CASE_SENSITIVE="true"
 COMPLETION_WAITING_DOTS="true"
@@ -62,3 +63,5 @@ if [[ "$TERMINAL_EMULATOR" != "JetBrains-JediTerm" ]]; then
   fi
 fi
 
+
+. "$HOME/.local/bin/env"

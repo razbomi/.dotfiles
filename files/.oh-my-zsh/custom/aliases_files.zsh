@@ -32,15 +32,3 @@ f() {
 # v **<TAB> 
 alias v="nvim"
 alias vim="nvim"
-vi() {
-  fd --type f --hidden --exclude .git --exclude node_modules |
-  fzf --layout reverse \
-      --ignore-case \
-      --style minimal \
-      --tmux 80% \
-      --tac \
-      --no-sort \
-      --query "$*" \
-      --preview "bat --color=always --style=numbers --line-range=:500 {}" \
-      --bind 'enter:become(nvim {})'
-}

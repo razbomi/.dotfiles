@@ -1,6 +1,5 @@
 alias t="terragrunt run-all"
-alias ta="terragrunt run-all apply --terragrunt-non-interactive --terragrunt-disable-bucket-update --terragrunt-working-dir"
-alias ta_old="terragrunt run-all apply --terragrunt-non-interactive --terragrunt-working-dir"
+alias ta="terragrunt run --all apply --non-interactive --disable-bucket-update --working-dir"
 alias td="terragrunt run-all destroy --terragrunt-disable-bucket-update --terragrunt-working-dir"
 alias td_old="terragrunt run-all destroy --terragrunt-working-dir"
 alias tfd="fd -HI .terragrunt-cache --type d -X rm -rf"
