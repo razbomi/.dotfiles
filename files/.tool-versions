@@ -1,5 +1,5 @@
 golang 1.24.5
-java openjdk-24
+java openjdk-25
 nodejs 22.15.0
 terraform 1.9.8
 terragrunt 0.80.4

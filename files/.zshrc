@@ -1,6 +1,7 @@
 export PATH="/opt/homebrew/sbin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="/Applications/IntelliJ IDEA.app/Contents/MacOS:$PATH" # idea .
 export ZSH="$HOME/.oh-my-zsh"
 
 CASE_SENSITIVE="true"
