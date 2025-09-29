@@ -58,8 +58,8 @@ local plugins = {
 			require("configs.nvim-tmux-navigation")
 		end,
 	},
-	{ "b0o/schemastore.nvim" },
-	{ "someone-stole-my-name/yaml-companion.nvim" },
+	-- { "b0o/schemastore.nvim" },
+	-- { "someone-stole-my-name/yaml-companion.nvim" },
 	{
 		"folke/trouble.nvim",
 		cmd = "Trouble",
