@@ -18,9 +18,9 @@ plugins=(
   brew
   fzf
   git
-  jj 
   kubectl
   mise
+  # tmux
   z
 )
 
