@@ -7,3 +7,6 @@ font-size = 14
 theme = Catppuccin Mocha
 
 macos-icon = xray
+macos-titlebar-style = hidden
+
+command = tmux new-session -A -s main \; new-session -t main
