@@ -1,4 +1,4 @@
-alias a="alias | grep"
+a() { alias | fzf --layout reverse --height 40% --query "$*" }
 alias c="clear"
 alias dc="docker compose"
 alias dot="cd ~/.dotfiles/"
