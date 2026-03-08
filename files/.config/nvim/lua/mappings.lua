@@ -5,6 +5,7 @@ local all = { "n", "i", "v" }
 
 map("i", "jj", "<ESC>", { desc = "General Exit insert mode" })
 map(all, "<C-s>", "<ESC><cmd>w<cr>", { desc = "General Save and Exit insert mode" })
+map(all, "<C-q>", "<ESC><cmd>wqa<cr>", { desc = "General Save all and quit" })
 
 -- https://github.com/NvChad/ui/blob/6f71760950c89c0484b58520211cc530516849fc/doc/nvui.txt#L269
 map("n", "<leader>o", function()
