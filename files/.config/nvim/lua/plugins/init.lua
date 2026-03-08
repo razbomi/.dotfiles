@@ -68,6 +68,20 @@ local plugins = {
 		ft = { "yaml" },
 	},
 	{
+		"sindrets/diffview.nvim",
+		cmd = { "DiffviewOpen", "DiffviewFileHistory" },
+		keys = {
+			{ "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "Git Diff View" },
+			{ "<leader>gh", "<cmd>DiffviewFileHistory %<cr>", desc = "Git File History" },
+			{ "<leader>gq", "<cmd>DiffviewClose<cr>", desc = "Git Close Diff View" },
+		},
+		opts = {
+			view = {
+				default = { layout = "diff2_horizontal" },
+			},
+		},
+	},
+	{
 		"folke/flash.nvim",
 		event = "VeryLazy",
 		opts = {

@@ -44,9 +44,6 @@ vim.api.nvim_create_autocmd("FileType", {
 					schemas = require("schemastore").yaml.schemas(),
 				},
 			},
-			on_attach = function(client, bufnr)
-				client.server_capabilities.documentFormattingProvider = false
-			end,
 		})
 	end,
 })
