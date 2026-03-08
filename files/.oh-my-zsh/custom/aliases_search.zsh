@@ -18,5 +18,5 @@ a() {
   local selection
   selection=$(_alias_list | fzf --layout reverse --height 40% --query "$*" \
     --preview "_alias_preview {}" --preview-window down:wrap | cut -d= -f1)
-  [[ -n "$selection" ]] && print -z "$selection"
+  [[ -n "$selection" ]] && print -z "$selection "
 }

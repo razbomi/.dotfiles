@@ -6,7 +6,7 @@ alias j="jsonnet"
 alias jb="jsonnet-bundler"
 alias sc="source ${HOME}/.zshrc"
 
-alias ta="tmux attach -t"
+alias ta="tmux switch-client -t"
 alias tl="tmux list-sessions"
 alias ts="tmux new-session -s"
 alias tks="tmux kill-session -t"
