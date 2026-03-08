@@ -20,25 +20,21 @@ local plugins = {
 		"nvim-treesitter/nvim-treesitter",
 		opts = {
 			ensure_installed = {
-				"jsonnet",
 				"bash",
-
 				"go",
 				"gomod",
 				"gosum",
 				"gowork",
-
 				"hcl",
-				"terraform",
-
-				"json",
-				"yaml",
-
 				"javascript",
-				"typescript",
-
+				"json",
+				"jsonnet",
 				"markdown",
 				"markdown_inline",
+				"python",
+				"terraform",
+				"typescript",
+				"yaml",
 			},
 		},
 	},
@@ -58,8 +54,39 @@ local plugins = {
 			require("configs.nvim-tmux-navigation")
 		end,
 	},
-	-- { "b0o/schemastore.nvim" },
-	-- { "someone-stole-my-name/yaml-companion.nvim" },
+	{
+		"mfussenegger/nvim-lint",
+		event = { "BufWritePost", "BufReadPost" },
+		config = function()
+			require("configs.lint")
+		end,
+	},
+	{ "b0o/schemastore.nvim", lazy = true },
+	{
+		"cwrau/yaml-schema-detect.nvim",
+		dependencies = { "b0o/schemastore.nvim" },
+		ft = { "yaml" },
+	},
+	{
+		"folke/flash.nvim",
+		event = "VeryLazy",
+		opts = {
+			modes = {
+				char = { jump_labels = true },
+				search = { enabled = true },
+			},
+		},
+		config = function(_, opts)
+			require("flash").setup(opts)
+			vim.api.nvim_set_hl(0, "FlashLabel", { fg = "#1e1e2e", bg = "#f38ba8", bold = true })
+			vim.api.nvim_set_hl(0, "FlashMatch", { fg = "#cdd6f4", bg = "#45475a" })
+		end,
+		keys = {
+			{ "s", function() require("flash").jump() end, mode = { "n", "x", "o" }, desc = "Flash" },
+			{ "S", function() require("flash").treesitter() end, mode = { "n", "x", "o" }, desc = "Flash Treesitter" },
+			{ "<c-s>", function() require("flash").toggle() end, mode = { "c" }, desc = "Toggle Flash Search" },
+		},
+	},
 	{
 		"folke/trouble.nvim",
 		cmd = "Trouble",
@@ -67,7 +94,6 @@ local plugins = {
 			{
 				"<leader>cl",
 				"<cmd>Trouble lsp toggle focus=false<cr>",
-				-- "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
 				desc = "trouble toggle lsp",
 			},
 			{
@@ -78,7 +104,7 @@ local plugins = {
 		},
 		config = function()
 			dofile(vim.g.base46_cache .. "trouble")
-			require("trouble").setup({ use_diagnostic_signs = true })
+			require("trouble").setup()
 		end,
 	},
 	{

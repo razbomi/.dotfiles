@@ -1,4 +1,3 @@
----@type ChadrcConfig
 require("nvchad.autocmds")
 
 local autocmd = vim.api.nvim_create_autocmd
@@ -11,7 +10,7 @@ local tf_commentstring = function(ev)
 end
 
 autocmd("FileType", {
-	pattern = "tf",
+	pattern = "terraform",
 	group = tf_group,
 	callback = tf_commentstring,
 })
@@ -22,15 +21,3 @@ autocmd("FileType", {
 	callback = tf_commentstring,
 })
 
--- FIXME: Override todo-comments defaults
-autocmd("User", {
-	pattern = "VeryLazy",
-	group = augroup("NvChadReapplyHighlights", { clear = true }),
-	callback = function()
-		vim.defer_fn(function()
-			vim.cmd("hi TodoFgTODO guifg=#89b4fa gui=bold")
-			vim.cmd("hi TodoFgFIX guifg=#f38ba8 gui=bold")
-			vim.cmd("hi TodoFgNOTE guifg=#94e2d5 gui=italic")
-		end, 10)
-	end,
-})
