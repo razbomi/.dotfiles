@@ -1,4 +1,3 @@
-a() { alias | fzf --layout reverse --height 40% --query "$*" }
 alias c="clear"
 alias dot="cd ~/.dotfiles/"
 alias h="fc -l 1 | grep"
