@@ -1,6 +1,5 @@
 a() { alias | fzf --layout reverse --height 40% --query "$*" }
 alias c="clear"
-alias dc="docker compose"
 alias dot="cd ~/.dotfiles/"
 alias h="fc -l 1 | grep"
 alias hey="oha" # https://github.com/rakyll/hey/issues/269
