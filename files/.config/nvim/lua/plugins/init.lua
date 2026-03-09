@@ -105,21 +105,54 @@ local plugins = {
 		"folke/trouble.nvim",
 		cmd = "Trouble",
 		keys = {
+			{ "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics" },
+			{ "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Buffer Diagnostics" },
+			{ "<leader>xl", "<cmd>Trouble lsp toggle focus=false<cr>", desc = "LSP References" },
+			{ "<leader>xt", "<cmd>Trouble todo toggle<cr>", desc = "Todos" },
+			{ "<leader>xq", "<cmd>Trouble quickfix toggle<cr>", desc = "Quickfix" },
+			{ "<leader>xL", "<cmd>Trouble loclist toggle<cr>", desc = "Location List" },
+			{ "<leader>cs", "<cmd>Trouble symbols toggle focus=false<cr>", desc = "Symbols Outline" },
 			{
-				"<leader>cl",
-				"<cmd>Trouble lsp toggle focus=false<cr>",
-				desc = "trouble toggle lsp",
+				"[q",
+				function()
+					if require("trouble").is_open() then
+						require("trouble").prev({ skip_groups = true, jump = true })
+					else
+						local ok, err = pcall(vim.cmd.cprev)
+						if not ok then vim.notify(err, vim.log.levels.ERROR) end
+					end
+				end,
+				desc = "Previous Trouble/Quickfix Item",
 			},
 			{
-				"<leader>cx",
-				"<cmd>Trouble diagnostics toggle<cr>",
-				desc = "trouble toggle diagnostics",
+				"]q",
+				function()
+					if require("trouble").is_open() then
+						require("trouble").next({ skip_groups = true, jump = true })
+					else
+						local ok, err = pcall(vim.cmd.cnext)
+						if not ok then vim.notify(err, vim.log.levels.ERROR) end
+					end
+				end,
+				desc = "Next Trouble/Quickfix Item",
 			},
 		},
 		config = function()
 			dofile(vim.g.base46_cache .. "trouble")
 			require("trouble").setup()
 		end,
+	},
+	{
+		"echasnovski/mini.surround",
+		event = "VeryLazy",
+		opts = {},
+	},
+	{
+		"echasnovski/mini.ai",
+		event = "VeryLazy",
+		opts = {
+			n_lines = 500,
+		},
 	},
 	{
 		"folke/todo-comments.nvim",

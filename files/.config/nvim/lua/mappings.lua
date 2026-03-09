@@ -7,10 +7,20 @@ map("i", "jj", "<ESC>", { desc = "General Exit insert mode" })
 map(all, "<C-s>", "<ESC><cmd>w<cr>", { desc = "General Save and Exit insert mode" })
 map(all, "<C-q>", "<ESC><cmd>wqa<cr>", { desc = "General Save all and quit" })
 
+vim.keymap.del("n", "<leader>x")
+
+-- buffers
 -- https://github.com/NvChad/ui/blob/6f71760950c89c0484b58520211cc530516849fc/doc/nvui.txt#L269
-map("n", "<leader>o", function()
+map("n", "<leader>bd", function()
+	require("nvchad.tabufline").close_buffer()
+end, { desc = "Buffer Delete" })
+map("n", "<leader>bo", function()
 	require("nvchad.tabufline").closeAllBufs(false)
-end, { desc = "General Close other buffers" })
+end, { desc = "Buffer Delete Others" })
+
+-- lsp
+map("n", "gd", "<cmd>Trouble lsp_definitions toggle<cr>", { desc = "LSP Definitions (Trouble)" })
+map("n", "grr", "<cmd>Trouble lsp_references toggle<cr>", { desc = "LSP References (Trouble)" })
 
 -- git
 local gitsigns = require("gitsigns")
