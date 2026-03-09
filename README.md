@@ -1,43 +1,45 @@
 # .dotfiles
 
-Currently arm mac only (brew paths are different).
+Personal dotfiles and system configuration for macOS (arm). Uses nix-darwin + home-manager for packages and tool config, with stow + brew for things not yet migrated.
 
-### Fresh install
+## Fresh install
 
-Add to `files/Brewfile` for new deps.    
-Subsequent `./run tools` will upgrade.  
+```bash
+git clone git@github.com:razbomi/.dotfiles.git
+cd ~/.dotfiles
 
-Clone into the `$HOME` folder.
+# 1. Install nix (restart shell after)
+./install/nix.sh
 
+# 2. Stow configs (zsh, tmux, ghostty, etc.)
+./run install
+
+# 3. Install brew packages
+./run tools
+
+# 4. First nix build + switch (replace "henry" with your hostname)
+nix --extra-experimental-features 'nix-command flakes' build .#darwinConfigurations.henry.system
+sudo ./result/sw/bin/darwin-rebuild switch --flake .
+
+# 5. Subsequent switches
+./run switch
 ```
-$ git clone git@github.com:razbomi/.dotfiles.git
-$ cd ~/.dotfiles
-$ ./run tools
 
+## Day-to-day
+
+```bash
+./run switch    # apply nix-darwin + home-manager changes
+./run install   # re-stow dotfiles (for configs not yet in nix)
+./run tools     # update brew packages
+./run clean     # remove stow symlinks
 ```
 
-### Add new config
+## What's managed by nix
 
-Link config from `files` folder.  
-Unlink to uninstall using `./run clean`.
+- bat, btop (home-manager + catppuccin/nix theming)
+- System config (nix-darwin)
 
-```
-$ cd ~/.dotfiles
-$ ./run install
-```
+## What's still stow + brew
 
-### NVim Distros
-
-HOPES: Try different nvim distros
-- https://github.com/NormalNvim/NormalNvim
-- https://github.com/nvim-lua/kickstart.nvim
-
-```
-# to install
-git clone https://github.com/NvChad/NvChad   ~/.config/nvchad -d1
-git clone https://github.com/LazyVim/starter ~/.config/lazyvim -d1
-
-# to run:
-NVIM_APPNAME=nvchad   nvim
-NVIM_APPNAME=lazynvim nvim
-```
+- zsh, tmux, git, neovim, ghostty configs
+- Everything in `files/Brewfile`
