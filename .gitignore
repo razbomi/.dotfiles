@@ -2,6 +2,7 @@
 .env
 
 .DS_Store
+result
 tmp/
 .aider*
 ~/.gitconfig.local

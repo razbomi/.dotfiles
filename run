@@ -12,6 +12,10 @@ target_clean() {
   stow -vD files
 }
 
+target_switch() {
+  sudo /run/current-system/sw/bin/darwin-rebuild switch --flake "${INSTALL_DIR}"
+}
+
 target_tools() {
   ("$INSTALL_DIR/install/ohmyzsh.sh")
   ("$INSTALL_DIR/install/brew.sh")
@@ -25,6 +29,7 @@ usage: ${command} <target>
 target:
    clean    --  Remove symlinks to dotfiles
    install  --  Link dotfiles to install folder
+   switch   --  Apply nix-darwin configuration
    tools    --  Install or update tools
 EOF
 }
