@@ -13,11 +13,11 @@ kafka-connect() {
 # kafka-consumer-groups --help
 kafka-consumer-groups() { 
   keti "$(kafka-connect)" -n kafka -c cp-kafka-connect-server \
-    -- kafka-consumer-groups --bootstrap-server b-1:9092 $@ 
+    -- kafka-consumer-groups --bootstrap-server b-1:9092 "$@"
 }
 
 # kafka-topics --help
-kafka-topics() { 
+kafka-topics() {
   keti "$(kafka-connect)" -n kafka -c cp-kafka-connect-server \
-    -- kafka-topics --bootstrap-server b-1:9092 $@ 
+    -- kafka-topics --bootstrap-server b-1:9092 "$@"
 }

@@ -37,7 +37,7 @@ rdl() {
         --preview "rg --color=always -n '$1' {}" \
         --preview-window right,60%,border-left
   ) || return
-  echo "$files" | xargs -n1 nvim -nesc ":g/$1/d | wq"
+  echo "$files" | xargs -n1 nvim -nesc ":g|$1|d | wq"
 }
 
 # Search and replace across files (fzf to pick files)
@@ -51,7 +51,7 @@ rsr() {
         --preview "rg --color=always -n '$1' {}" \
         --preview-window right,60%,border-left
   ) || return
-  echo "$files" | xargs sed -i '' "s/$1/$2/g"
+  echo "$files" | xargs sed -i '' "s|$1|$2|g"
   echo "replaced '$1' → '$2' in:"
   echo "$files"
 }
