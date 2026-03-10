@@ -117,6 +117,16 @@ Used with operators: `{operator}{a/i}{object}` — `a` = around (includes delimi
 | `<<` | Dedent line |
 | `==` | Auto-indent line |
 
+### Search and Replace (in-place)
+
+| Keys | Action |
+|---|---|
+| `*` then `cgn` | Change current word occurrence, type replacement |
+| `.` | Repeat change on next match |
+| `n` | Skip to next match without changing |
+
+Workflow: `*` searches for word under cursor, `cgn` = **c**hange **g**o **n**ext match. Then `.` to apply same change again, `n` to skip.
+
 ### Registers
 
 | Key | Action |
