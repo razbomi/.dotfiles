@@ -7,7 +7,13 @@ map("i", "jj", "<ESC>", { desc = "General Exit insert mode" })
 map(all, "<C-s>", "<ESC><cmd>w<cr>", { desc = "General Save and Exit insert mode" })
 map(all, "<C-q>", "<ESC><cmd>wqa<cr>", { desc = "General Save all and quit" })
 
+-- NvChad defaults that persist even with plugins disabled (nvterm, etc.)
 vim.keymap.del("n", "<leader>x")
+vim.keymap.del("n", "<leader>h")
+vim.keymap.del("n", "<leader>v")
+vim.keymap.del({ "n", "t" }, "<A-i>")
+vim.keymap.del({ "n", "t" }, "<A-h>")
+vim.keymap.del({ "n", "t" }, "<A-v>")
 
 -- buffers
 -- https://github.com/NvChad/ui/blob/6f71760950c89c0484b58520211cc530516849fc/doc/nvui.txt#L269
