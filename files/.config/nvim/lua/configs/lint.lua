@@ -4,7 +4,6 @@ lint.linters_by_ft = {
 	javascript = { "oxlint" },
 	javascriptreact = { "oxlint" },
 	python = { "ruff" },
-	terraform = { "tflint" },
 	typescript = { "oxlint" },
 	typescriptreact = { "oxlint" },
 }
