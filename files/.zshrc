@@ -36,6 +36,16 @@ export FZF_DEFAULT_OPTS=" \
 --color=selected-bg:#45475a \
 --multi"
 
+# History search (Up/C-r):
+#   In picker: C-y copy to clipboard, C-/ toggle preview
+#   After selecting: C-x C-e edit in vim, C-x C-u undo, C-x a expand alias
+export FZF_CTRL_R_OPTS=" \
+  --with-nth=2.. \
+  --preview 'echo {2..} | bat --language=bash --color=always --plain' \
+  --preview-window=down:3:wrap \
+  --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort' \
+  --bind 'ctrl-/:toggle-preview'"
+
 # Try presto if this becomes too slow
 plugins=(
   aws
@@ -52,9 +62,14 @@ source "$ZSH/oh-my-zsh.sh"
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# Use fzf for history search on up/down (use !! for previous command)
-bindkey '^[[A' fzf-history-widget
-bindkey '^[[B' fzf-history-widget
+# fzf history search on up/down arrows (use terminfo for correct escape sequences)
+bindkey "${terminfo[kcuu1]}" fzf-history-widget
+bindkey "${terminfo[kcud1]}" fzf-history-widget
+
+# C-x C-e to edit current command line in $EDITOR
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^x^e' edit-command-line
 
 # https://github.com/sindresorhus/pure?tab=readme-ov-file#oh-my-zsh
 # fpath+=("$(brew --prefix)/share/zsh/site-functions")
