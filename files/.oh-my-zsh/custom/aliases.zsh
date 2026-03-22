@@ -1,4 +1,5 @@
 alias c="clear"
+alias cat="bat -p"
 alias dot="cd ~/.dotfiles/"
 alias h="fc -l 1 | grep"
 alias hey="oha" # https://github.com/rakyll/hey/issues/269
