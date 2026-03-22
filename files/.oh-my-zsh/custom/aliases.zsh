@@ -5,6 +5,7 @@ alias hey="oha" # https://github.com/rakyll/hey/issues/269
 alias j="jsonnet"
 alias jb="jsonnet-bundler"
 alias sc="source ${HOME}/.zshrc"
+alias watch="viddy"
 
 alias ta="tmux switch-client -t"
 alias tl="tmux list-sessions"

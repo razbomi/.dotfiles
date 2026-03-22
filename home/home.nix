@@ -6,6 +6,7 @@
   imports = [
     ./bat.nix
     ./btop.nix
+    ./packages.nix
     ./tmux.nix
   ];
 
