@@ -4,6 +4,11 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
+    autocd = true;
+    dirHashes = {
+      dev = "$HOME/Development";
+    };
+
     sessionVariables = {
       EDITOR = "nvim";
       # GPG_TTY set in initContent (needs runtime eval)
