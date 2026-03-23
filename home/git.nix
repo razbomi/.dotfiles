@@ -3,7 +3,7 @@
     enable = true;
 
     includes = [
-      { path = "~/.gitconfig-local"; }
+      { path = "~/.gitconfig.local"; }
     ];
 
     settings = {
