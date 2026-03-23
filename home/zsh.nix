@@ -90,6 +90,10 @@
     '';
   };
 
+  programs.eza = {
+    enable = true;
+  };
+
   home.file = {
     ".config/zsh/aliases.zsh".source = ./shell/aliases.zsh;
     ".config/zsh/aliases_docker.zsh".source = ./shell/aliases_docker.zsh;
