@@ -6,9 +6,12 @@
   imports = [
     ./bat.nix
     ./btop.nix
+    ./fzf.nix
     ./git.nix
     ./packages.nix
     ./tmux.nix
+    ./zoxide.nix
+    ./zsh.nix
   ];
 
   catppuccin.enable = true;

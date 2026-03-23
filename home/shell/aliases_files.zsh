@@ -1,5 +1,3 @@
-eval "$(zoxide init zsh --no-cmd)"
-
 z() {
   local result
   result=$(zoxide query "$@" 2>/dev/null)

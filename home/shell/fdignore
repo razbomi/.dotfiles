@@ -1,0 +1,57 @@
+# macOS system folders
+Applications
+Claude
+Desktop
+Documents
+Downloads
+Library
+Movies
+Music
+Pictures
+Public
+go
+
+# Home directory cruft
+.azure
+.bun
+.cache
+.cargo
+.claude
+.cups
+.docker
+.electron
+.gradle
+.ipython
+.jupyter
+.local
+.mongodb
+.npm
+.nix-defexpr
+.nix-profile
+.oh-my-zsh
+.pyenv
+.rustup
+.skiko
+.terraform.d
+.Trash
+.vim
+.yarn
+.yalc
+.zsh_sessions
+
+# Build output
+build
+dist
+target
+out
+coverage
+tmp
+
+# Project tooling
+.git
+.idea
+.terraform
+.terragrunt-cache
+.pnpm-store
+.playwright-mcp
+node_modules
