@@ -6,7 +6,7 @@
 
     sessionVariables = {
       EDITOR = "nvim";
-      GPG_TTY = "$(tty)";
+      # GPG_TTY set in initContent (needs runtime eval)
 
       # AWS plugin config (must be set before sourcing)
       SHOW_AWS_PROMPT = "false";
@@ -30,7 +30,7 @@
         exec tmux new-session
       fi
 
-      autoload -Uz compinit && compinit
+      export GPG_TTY=$(tty)
 
       # C-x C-e to edit current command line in $EDITOR
       autoload -U edit-command-line

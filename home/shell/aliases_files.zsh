@@ -27,12 +27,13 @@ alias vim="nvim"
 
 # Delete lines matching pattern across files (fzf to pick files)
 rdl() {
+  local pattern=$(printf '%q' "$1")
   local files
   files=$(rg "$1" -l |
     fzf --multi \
         --tmux 80% \
         --layout reverse \
-        --preview "rg --color=always -n '$1' {}" \
+        --preview "rg --color=always -n $pattern {}" \
         --preview-window right,60%,border-left
   ) || return
   echo "$files" | xargs -n1 nvim -nesc ":g|$1|d | wq"
@@ -41,12 +42,13 @@ rdl() {
 # Search and replace across files (fzf to pick files)
 rsr() {
   [[ $# -ne 2 ]] && echo "usage: rsr <old> <new>" && return 1
+  local pattern=$(printf '%q' "$1")
   local files
   files=$(rg "$1" -l |
     fzf --multi \
         --tmux 80% \
         --layout reverse \
-        --preview "rg --color=always -n '$1' {}" \
+        --preview "rg --color=always -n $pattern {}" \
         --preview-window right,60%,border-left
   ) || return
   echo "$files" | xargs sed -i '' "s|$1|$2|g"
