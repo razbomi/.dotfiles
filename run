@@ -17,7 +17,6 @@ target_switch() {
 }
 
 target_tools() {
-  ("$INSTALL_DIR/install/ohmyzsh.sh")
   ("$INSTALL_DIR/install/brew.sh")
 }
 
