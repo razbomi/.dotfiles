@@ -8,6 +8,7 @@
     ./btop.nix
     ./fzf.nix
     ./git.nix
+    ./neovim.nix
     ./packages.nix
     ./tmux.nix
     ./zoxide.nix

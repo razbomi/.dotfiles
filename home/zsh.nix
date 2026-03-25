@@ -10,7 +10,6 @@
     };
 
     sessionVariables = {
-      EDITOR = "nvim";
       # GPG_TTY set in initContent (needs runtime eval)
 
       # AWS plugin config (must be set before sourcing)
@@ -65,6 +64,9 @@
       # kubectl completions cache
       ZSH_CACHE_DIR="''${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
       mkdir -p "$ZSH_CACHE_DIR/completions"
+
+      # Completion: case-insensitive, hyphen-insensitive, substring matching
+      zstyle ':completion:*' matcher-list 'm:{a-zA-Z-_}={A-Za-z_-}' 'r:|=*' 'l:|=* r:|=*'
 
       # oh-my-zsh plugins (no framework, just the plugin files)
       source ${omz}/plugins/aws/aws.plugin.zsh
