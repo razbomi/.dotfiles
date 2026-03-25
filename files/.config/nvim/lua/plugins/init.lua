@@ -1,8 +1,7 @@
 local plugins = {
-	{
-		"NvChad/nvterm",
-		enabled = false,
-	},
+	{ "NvChad/nvterm", enabled = false },
+	{ "mason-org/mason.nvim", enabled = false },
+	{ "mason-org/mason-lspconfig.nvim", enabled = false },
 	{
 		"stevearc/conform.nvim",
 		event = { "BufWritePre" },

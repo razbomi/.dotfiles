@@ -20,7 +20,6 @@
     };
 
     shellAliases = {
-      # General
       c = "claude";
       cat = "bat -p";
       code = "claude";
@@ -28,12 +27,11 @@
       hey = "oha";
       j = "jsonnet";
       jb = "jsonnet-bundler";
-      sc = "source $HOME/.zshrc";
-      watch = "viddy";
       md = "mkdir -p";
       rd = "rmdir";
+      sc = "source $HOME/.zshrc";
+      watch = "viddy";
 
-      # pnpm
       pn = "pnpm";
       pna = "pnpm add";
       pni = "pnpm install";
@@ -41,7 +39,8 @@
       pnrm = "pnpm remove";
       pnx = "pnpx";
 
-      # tmux
+      l = "eza -lah";
+
       ta = "tmux switch-client -t";
       tks = "tmux kill-session -t";
       tkv = "tmux kill-server";
