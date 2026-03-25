@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   programs.tmux = {
     enable = true;
-    sensibleOnTop = true;
+    sensibleOnTop = false; # not using sensible plugin
     mouse = true;
     prefix = "C-a";
     keyMode = "vi";
@@ -15,6 +15,16 @@
     ];
 
     extraConfig = ''
+      # Defaults (replaces tmux-sensible)
+      set -g display-time 4000
+      set -g status-interval 5
+      set -g status-keys emacs
+      set -g focus-events on
+      bind C-p previous-window
+      bind C-n next-window
+      bind a last-window
+      bind R source-file ~/.config/tmux/tmux.conf \; display "Reloaded!"
+
       # Terminal settings (Ghostty)
       set -as terminal-features ",xterm-ghostty:RGB"
       set -g set-titles on

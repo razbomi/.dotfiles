@@ -9,6 +9,46 @@
       dev = "$HOME/Development";
     };
 
+    history = {
+      size = 50000;
+      save = 10000;
+      extended = true;
+      expireDuplicatesFirst = true;
+      ignoreDups = true;
+      ignoreSpace = true;
+      share = true;
+    };
+
+    shellAliases = {
+      # General
+      c = "claude";
+      cat = "bat -p";
+      code = "claude";
+      dot = "cd ~/.dotfiles/";
+      hey = "oha";
+      j = "jsonnet";
+      jb = "jsonnet-bundler";
+      sc = "source $HOME/.zshrc";
+      watch = "viddy";
+      md = "mkdir -p";
+      rd = "rmdir";
+
+      # pnpm
+      pn = "pnpm";
+      pna = "pnpm add";
+      pni = "pnpm install";
+      pnr = "pnpm run";
+      pnrm = "pnpm remove";
+      pnx = "pnpx";
+
+      # tmux
+      ta = "tmux switch-client -t";
+      tks = "tmux kill-session -t";
+      tkv = "tmux kill-server";
+      tl = "tmux list-sessions";
+      ts = "tmux new-session -s";
+    };
+
     sessionVariables = {
       # GPG_TTY set in initContent (needs runtime eval)
 
@@ -65,8 +105,19 @@
       ZSH_CACHE_DIR="''${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
       mkdir -p "$ZSH_CACHE_DIR/completions"
 
-      # Completion: case-insensitive, hyphen-insensitive, substring matching
+      # Completion
+      zmodload -i zsh/complist
+      setopt complete_in_word always_to_end auto_menu
+      unsetopt menu_complete flowcontrol
+      zstyle ':completion:*:*:*:*:*' menu select
       zstyle ':completion:*' matcher-list 'm:{a-zA-Z-_}={A-Za-z_-}' 'r:|=*' 'l:|=* r:|=*'
+      zstyle ':completion:*' special-dirs true
+      zstyle ':completion:*' use-cache yes
+      zstyle ':completion:*' cache-path "$ZSH_CACHE_DIR"
+      bindkey -M menuselect "''${terminfo[kcbt]}" reverse-menu-complete
+
+      # Directory stack
+      setopt auto_pushd pushd_ignore_dups pushdminus
 
       # oh-my-zsh plugins (no framework, just the plugin files)
       source ${omz}/plugins/aws/aws.plugin.zsh
@@ -100,8 +151,7 @@
   };
 
   home.file = {
-    ".config/zsh/aliases.zsh".source = ./shell/aliases.zsh;
-    ".config/zsh/aliases_docker.zsh".source = ./shell/aliases_docker.zsh;
+".config/zsh/aliases_docker.zsh".source = ./shell/aliases_docker.zsh;
     ".config/zsh/aliases_files.zsh".source = ./shell/aliases_files.zsh;
     ".config/zsh/aliases_search.zsh".source = ./shell/aliases_search.zsh;
     ".config/zsh/aliases_terragrunt.zsh".source = ./shell/aliases_terragrunt.zsh;
