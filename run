@@ -1,41 +1,18 @@
 #!/usr/bin/env bash
-set -exuo pipefail
+set -euo pipefail
 
 INSTALL_DIR="${INSTALL_DIR:-${HOME}/.dotfiles}"
+HOSTNAME=$(scutil --get LocalHostName | tr '[:upper:]' '[:lower:]')
 
-target_install() {
-  # https://www.gnu.org/software/stow/manual/stow.html
-  stow --no-folding -vd "${INSTALL_DIR}" -S files
-}
-
-target_clean() {
-  stow -vD files
-}
-
-target_switch() {
-  sudo /run/current-system/sw/bin/darwin-rebuild switch --flake "${INSTALL_DIR}"
-}
-
-target_tools() {
-  ("$INSTALL_DIR/install/brew.sh")
-}
-
-help_message() {
-  local command=$0
-  cat << EOF
-usage: ${command} <target>
-
-target:
-   clean    --  Remove symlinks to dotfiles
-   install  --  Link dotfiles to install folder
-   switch   --  Apply nix-darwin configuration
-   tools    --  Install or update tools
-EOF
-}
-
-if type "target_$1" > /dev/null; then
-  "target_$1" "${@:2}"
-else
-  help_message "$1"
-  exit 1
+if ! command -v nix &>/dev/null; then
+  echo "Installing Nix..."
+  sh <(curl -L https://nixos.org/nix/install)
+  echo "Restart your shell, then run: ./run"
+  exit 0
 fi
+
+echo "Building for host: ${HOSTNAME}"
+nix --extra-experimental-features 'nix-command flakes' build "${INSTALL_DIR}#darwinConfigurations.${HOSTNAME}.system"
+sudo ./result/sw/bin/darwin-rebuild switch --flake "${INSTALL_DIR}"
+
+echo "Done. Use 'ns' to switch, 'nu' to update."

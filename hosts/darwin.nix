@@ -34,7 +34,6 @@
       "prek"
       "rustup"
       "skaffold"
-      "stow"
       "uv"
       # "ollama"
     ];
