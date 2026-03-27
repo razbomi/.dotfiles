@@ -150,11 +150,10 @@
   };
 
   home.file = {
-".config/zsh/aliases_docker.zsh".source = ./shell/aliases_docker.zsh;
-    ".config/zsh/aliases_files.zsh".source = ./shell/aliases_files.zsh;
-    ".config/zsh/aliases_search.zsh".source = ./shell/aliases_search.zsh;
-    ".config/zsh/aliases_terragrunt.zsh".source = ./shell/aliases_terragrunt.zsh;
-    ".config/zsh/aliases_yaml.zsh".source = ./shell/aliases_yaml.zsh;
-    ".fdignore".source = ./shell/fdignore;
+".config/zsh/aliases_docker.zsh".source = ../files/zsh/aliases_docker.zsh;
+    ".config/zsh/aliases_files.zsh".source = ../files/zsh/aliases_files.zsh;
+    ".config/zsh/aliases_search.zsh".source = ../files/zsh/aliases_search.zsh;
+    ".config/zsh/aliases_terragrunt.zsh".source = ../files/zsh/aliases_terragrunt.zsh;
+    ".config/zsh/aliases_yaml.zsh".source = ../files/zsh/aliases_yaml.zsh;
   };
 }

@@ -9,7 +9,6 @@ Movies
 Music
 Pictures
 Public
-go
 
 # Home directory cruft
 .azure
@@ -28,7 +27,6 @@ go
 .npm
 .nix-defexpr
 .nix-profile
-.oh-my-zsh
 .pyenv
 .rustup
 .skiko
@@ -38,14 +36,7 @@ go
 .yarn
 .yalc
 .zsh_sessions
-
-# Build output
-build
-dist
-target
-out
-coverage
-tmp
+go
 
 # Project tooling
 .git

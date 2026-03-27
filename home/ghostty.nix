@@ -1,0 +1,10 @@
+{ ... }: {
+  home.file.".config/ghostty/config".text = ''
+    cursor-color = cdd6f4
+    cursor-text = 1e1e2e
+    font-family = "JetBrainsMono Nerd Font"
+    font-size = 14
+    theme = Catppuccin Mocha
+    macos-icon = xray
+  '';
+}
