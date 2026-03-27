@@ -18,6 +18,7 @@
     let
       mkDarwin = { hostname, username, system ? "aarch64-darwin" }: darwin.lib.darwinSystem {
         inherit system;
+        specialArgs = { inherit username; };
         modules = [
           ./hosts/darwin.nix
           home-manager.darwinModules.home-manager
