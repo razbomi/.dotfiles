@@ -1,18 +1,31 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-INSTALL_DIR="${INSTALL_DIR:-${HOME}/.dotfiles}"
-HOSTNAME=$(scutil --get LocalHostName | tr '[:upper:]' '[:lower:]')
+# Prerequisites: Xcode Command Line Tools (for git)
+# Install with: xcode-select --install
+
+INSTALL_DIR="${HOME}/.dotfiles"
+
+if [[ ! -d "$INSTALL_DIR" ]]; then
+  echo "Cloning dotfiles..."
+  git clone https://github.com/razbomi/.dotfiles.git "$INSTALL_DIR"
+fi
 
 if ! command -v nix &>/dev/null; then
   echo "Installing Nix..."
   sh <(curl -L https://nixos.org/nix/install)
-  echo "Restart your shell, then run: ./run"
-  exit 0
+  NIX_DAEMON="/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh"
+  if [[ -f "$NIX_DAEMON" ]]; then
+    . "$NIX_DAEMON"
+  else
+    echo "Nix installed but could not source nix-daemon.sh. Restart your shell and re-run: ~/.dotfiles/run"
+    exit 1
+  fi
 fi
 
+HOSTNAME=$(scutil --get LocalHostName | tr '[:upper:]' '[:lower:]')
 echo "Building for host: ${HOSTNAME}"
 nix --extra-experimental-features 'nix-command flakes' build "${INSTALL_DIR}#darwinConfigurations.${HOSTNAME}.system"
-sudo ./result/sw/bin/darwin-rebuild switch --flake "${INSTALL_DIR}"
+sudo "${INSTALL_DIR}/result/sw/bin/darwin-rebuild" switch --flake "${INSTALL_DIR}"
 
-echo "Done. Use 'ns' to switch, 'nu' to update."
+echo "Done. Restart your shell, then use 'ns' to switch, 'nu' to update."

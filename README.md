@@ -1,45 +1,27 @@
 # .dotfiles
 
-Personal dotfiles and system configuration for macOS (arm). Uses nix-darwin + home-manager for packages and tool config, with stow + brew for things not yet migrated.
+macOS (arm) system config. nix-darwin + home-manager, brew packages declared in nix.
 
-## Fresh install
+## Structure
 
-```bash
-git clone git@github.com:razbomi/.dotfiles.git
-cd ~/.dotfiles
+- `flake.nix` — entry point, wires nix-darwin + home-manager + catppuccin
+- `hosts/darwin.nix` — system settings, nix gc, `homebrew` block (brews + casks, `zap` cleanup)
+- `home/*.nix` — user config, one module per tool, imported from `home.nix`
+- `files/` — raw configs that aren't nix modules
+  - `nvchad/` — neovim config, symlinked via `mkOutOfStoreSymlink` (editable in-place)
+  - `zsh/` — alias files, symlinked to `~/.config/zsh/`
+  - `fdignore` — fd/fzf ignore patterns
 
-# 1. Install nix (restart shell after)
-./install/nix.sh
+## Usage
 
-# 2. Stow configs (zsh, tmux, ghostty, etc.)
-./run install
+- `ns` — apply config changes
+- `nu` — update flake inputs + apply
 
-# 3. Install brew packages
-./run tools
-
-# 4. First nix build + switch (replace "henry" with your hostname)
-nix --extra-experimental-features 'nix-command flakes' build .#darwinConfigurations.henry.system
-sudo ./result/sw/bin/darwin-rebuild switch --flake .
-
-# 5. Subsequent switches
-./run switch
-```
-
-## Day-to-day
+## Bootstrap
 
 ```bash
-./run switch    # apply nix-darwin + home-manager changes
-./run install   # re-stow dotfiles (for configs not yet in nix)
-./run tools     # update brew packages
-./run clean     # remove stow symlinks
+# requires Xcode CLT (xcode-select --install)
+curl -fsSL https://raw.githubusercontent.com/razbomi/.dotfiles/master/run | bash
 ```
 
-## What's managed by nix
-
-- bat, btop (home-manager + catppuccin/nix theming)
-- System config (nix-darwin)
-
-## What's still stow + brew
-
-- zsh, tmux, git, neovim, ghostty configs
-- Everything in `files/Brewfile`
+New machines need an entry in `flake.nix` `darwinConfigurations`.

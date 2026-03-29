@@ -1,6 +1,7 @@
 { ... }: {
   programs.git = {
     enable = true;
+    signing.format = null;
 
     includes = [
       { path = "~/.gitconfig.local"; }

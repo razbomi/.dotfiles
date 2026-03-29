@@ -153,7 +153,7 @@
   };
 
   home.file = {
-".config/zsh/aliases_docker.zsh".source = ../files/zsh/aliases_docker.zsh;
+    ".config/zsh/aliases_docker.zsh".source = ../files/zsh/aliases_docker.zsh;
     ".config/zsh/aliases_files.zsh".source = ../files/zsh/aliases_files.zsh;
     ".config/zsh/aliases_search.zsh".source = ../files/zsh/aliases_search.zsh;
     ".config/zsh/aliases_terragrunt.zsh".source = ../files/zsh/aliases_terragrunt.zsh;
