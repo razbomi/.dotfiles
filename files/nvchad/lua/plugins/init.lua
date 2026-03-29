@@ -154,6 +154,11 @@ local plugins = {
 		},
 	},
 	{
+		"MeanderingProgrammer/render-markdown.nvim",
+		ft = { "markdown" },
+		opts = {},
+	},
+	{
 		"folke/todo-comments.nvim",
 		event = "VeryLazy",
 		config = function()
