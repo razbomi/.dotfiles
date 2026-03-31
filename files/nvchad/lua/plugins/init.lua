@@ -2,18 +2,12 @@ local plugins = {
 	{ "NvChad/nvterm", enabled = false },
 	{ "mason-org/mason.nvim", enabled = false },
 	{ "mason-org/mason-lspconfig.nvim", enabled = false },
+	{ "neovim/nvim-lspconfig", enabled = false },
 	{
 		"stevearc/conform.nvim",
 		event = { "BufWritePre" },
 		cmd = { "ConformInfo" },
 		opts = require("configs.conform"),
-	},
-	{
-		"neovim/nvim-lspconfig",
-		config = function()
-			require("nvchad.configs.lspconfig").defaults()
-			require("configs.lspconfig")
-		end,
 	},
 	{
 		"nvim-treesitter/nvim-treesitter",

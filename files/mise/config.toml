@@ -1,0 +1,7 @@
+[tools]
+golang = "1.26"
+java = "openjdk-26"
+node = "25"
+opentofu = "1.11"
+terraform = "1.14"
+terragrunt = "0.99"

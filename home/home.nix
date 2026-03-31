@@ -18,6 +18,7 @@
 
   home.file.".fdignore".source = ../files/fdignore;
   home.file.".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "/Users/${username}/.dotfiles/files/nvchad";
+  home.file.".config/mise".source = config.lib.file.mkOutOfStoreSymlink "/Users/${username}/.dotfiles/files/mise";
 
   catppuccin.enable = true;
   catppuccin.flavor = "mocha";
