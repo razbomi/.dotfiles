@@ -9,28 +9,7 @@ local plugins = {
 		cmd = { "ConformInfo" },
 		opts = require("configs.conform"),
 	},
-	{
-		"nvim-treesitter/nvim-treesitter",
-		opts = {
-			ensure_installed = {
-				"bash",
-				"go",
-				"gomod",
-				"gosum",
-				"gowork",
-				"hcl",
-				"javascript",
-				"json",
-				"jsonnet",
-				"markdown",
-				"markdown_inline",
-				"python",
-				"terraform",
-				"typescript",
-				"yaml",
-			},
-		},
-	},
+	{ "nvim-treesitter/nvim-treesitter", enabled = false },
 	{
 		"lewis6991/gitsigns.nvim",
 		opts = {
