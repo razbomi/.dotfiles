@@ -44,6 +44,7 @@
       "chatgpt"
       "claude"
       "claude-code"
+      "codex"
       "discord"
       "firefox"
       "font-fira-mono-nerd-font"
