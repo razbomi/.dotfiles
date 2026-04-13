@@ -14,8 +14,8 @@
   homebrew = {
     enable = true;
     onActivation.cleanup = "zap";
-    onActivation.upgrade = false;
-    taps = [ "buo/cask-upgrade" ];
+    onActivation.upgrade = true;
+    greedyCasks = true;
     brews = [
       "awscli"
       "azure-cli"

@@ -42,7 +42,7 @@
       l = "eza -lah";
 
       ns = "sudo /run/current-system/sw/bin/darwin-rebuild switch --flake ~/.dotfiles";
-      nu = "nix flake update --flake ~/.dotfiles && sudo /run/current-system/sw/bin/darwin-rebuild switch --flake ~/.dotfiles && brew upgrade --greedy";
+      nu = "nix flake update --flake ~/.dotfiles && brew update && sudo /run/current-system/sw/bin/darwin-rebuild switch --flake ~/.dotfiles";
 
       ta = "tmux switch-client -t";
       tks = "tmux kill-session -t";
