@@ -1,4 +1,15 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+let
+  # TODO: remove when fixed — https://github.com/NixOS/nixpkgs/issues/509480
+  gotoolsWithoutModernize = pkgs.symlinkJoin {
+    name = "gotools-without-modernize";
+    paths = [ pkgs.gotools ];
+    postBuild = ''
+      rm -f "$out/bin/modernize"
+    '';
+  };
+in
+{
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -48,7 +59,7 @@
     yaml-language-server
 
     # Formatters
-    gotools # goimports
+    gotoolsWithoutModernize # goimports
     oxfmt
     prettierd
     ruff
