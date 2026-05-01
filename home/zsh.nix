@@ -59,6 +59,8 @@
       AWS_PROFILE_STATE_ENABLED = "true";
       AWS_SDK_LOAD_CONFIG = "true";
       AWS_STATE_FILE = "$HOME/.aws_current_profile";
+
+      CLAUDE_CODE_TMUX_TRUECOLOR = "1";
     };
 
     initContent = let
