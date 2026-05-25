@@ -42,26 +42,22 @@
     enable = true;
     enableDefaultConfig = false;
     includes = [ "config.local" ];
-    matchBlocks = {
+    settings = {
       "*" = {
-        extraOptions = {
-          AddKeysToAgent = "yes";
-          ServerAliveInterval = "60";
-        };
+        AddKeysToAgent = "yes";
+        ServerAliveInterval = 60;
       };
       "github.com" = {
-        user = "git";
-        identitiesOnly = true;
-        identityFile = "~/.ssh/id_ed25519";
+        User = "git";
+        IdentitiesOnly = true;
+        IdentityFile = "~/.ssh/id_ed25519";
       };
       "github.com-work" = {
-        hostname = "github.com";
-        user = "git";
-        identitiesOnly = true;
-        identityFile = "~/.ssh/github-work.pub";
-        extraOptions = {
-          IdentityAgent = "\"~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock\"";
-        };
+        HostName = "github.com";
+        User = "git";
+        IdentitiesOnly = true;
+        IdentityFile = "~/.ssh/github-work.pub";
+        IdentityAgent = "\"~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock\"";
       };
     };
   };

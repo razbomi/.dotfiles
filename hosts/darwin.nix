@@ -55,6 +55,7 @@
       "loom"
       "microsoft-teams"
       "mongodb-compass"
+      "session-manager-plugin"
       "slack"
       "spotify"
       "wispr-flow"
