@@ -57,7 +57,10 @@
     '';
   };
 
-  catppuccin.tmux.extraConfig = ''
-    set -g @catppuccin_window_status_style "rounded"
-  '';
+  catppuccin.tmux = {
+    enable = true;
+    extraConfig = ''
+      set -g @catppuccin_window_status_style "rounded"
+    '';
+  };
 }

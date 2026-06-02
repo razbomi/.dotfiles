@@ -18,9 +18,6 @@ in
     withPython3 = false;
   };
 
-  # NvChad handles its own catppuccin theming via base46
-  catppuccin.nvim.enable = false;
-
   # Treesitter parsers — precompiled by nix, on neovim's runtimepath
   home.packages = with pkgs; [
     (vimPlugins.nvim-treesitter.withPlugins (p: [

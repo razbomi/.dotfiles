@@ -20,8 +20,11 @@
   home.file.".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "/Users/${username}/.dotfiles/files/nvchad";
   home.file.".config/mise".source = config.lib.file.mkOutOfStoreSymlink "/Users/${username}/.dotfiles/files/mise";
 
-  catppuccin.enable = true;
-  catppuccin.flavor = "mocha";
+  catppuccin = {
+    enable = true;
+    autoEnable = false;
+    flavor = "mocha";
+  };
 
   programs.home-manager.enable = true;
 }
