@@ -13,7 +13,7 @@
 
   homebrew = {
     enable = true;
-    onActivation.cleanup = "zap";
+    onActivation.cleanup = "none";
     onActivation.upgrade = true;
     greedyCasks = true;
     brews = [
