@@ -43,6 +43,7 @@
 
       ns = "sudo /run/current-system/sw/bin/darwin-rebuild switch --flake ~/.dotfiles";
       nu = "nix flake update --flake ~/.dotfiles --commit-lock-file && brew update && sudo /run/current-system/sw/bin/darwin-rebuild switch --flake ~/.dotfiles";
+      nclean = "brew cleanup --prune=all && brew autoremove";
 
       ta = "tmux switch-client -t";
       tks = "tmux kill-session -t";
