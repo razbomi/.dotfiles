@@ -1,7 +1,10 @@
-{ username, ... }: {
+{ username, claude-config, lib, ... }: {
   system.primaryUser = username;
   ids.gids.nixbld = 350;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "claude-code" ];
+  nixpkgs.overlays = [ claude-config.overlays.default ];
 
   programs.zsh.enable = true;
 
@@ -43,7 +46,6 @@
       "1password-cli"
       "chatgpt"
       "claude"
-      "claude-code"
       "codex"
       "discord"
       "firefox"

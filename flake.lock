@@ -18,6 +18,26 @@
         "type": "github"
       }
     },
+    "claude-config": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1782745221,
+        "narHash": "sha256-DPNt66YENJ6XycfVvO6x/5lSjulLZXpOmVfjgnNtnOc=",
+        "owner": "razbomi",
+        "repo": "claude-config",
+        "rev": "3d1ebc5bbb4ec69dce24b60cb56d39da65f7eb90",
+        "type": "github"
+      },
+      "original": {
+        "owner": "razbomi",
+        "repo": "claude-config",
+        "type": "github"
+      }
+    },
     "darwin": {
       "inputs": {
         "nixpkgs": [
@@ -90,6 +110,7 @@
     "root": {
       "inputs": {
         "catppuccin": "catppuccin",
+        "claude-config": "claude-config",
         "darwin": "darwin",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs_2"

@@ -12,13 +12,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     catppuccin.url = "github:catppuccin/nix";
+    claude-config = {
+      url = "github:razbomi/claude-config";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, darwin, home-manager, catppuccin, ... }:
+  outputs = { self, nixpkgs, darwin, home-manager, catppuccin, claude-config, ... }:
     let
       mkDarwin = { hostname, username, system ? "aarch64-darwin" }: darwin.lib.darwinSystem {
         inherit system;
-        specialArgs = { inherit username; };
+        specialArgs = { inherit username claude-config; };
         modules = [
           ./hosts/darwin.nix
           home-manager.darwinModules.home-manager

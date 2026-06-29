@@ -6,6 +6,7 @@
   imports = [
     ./bat.nix
     ./btop.nix
+    ./claude.nix
     ./fzf.nix
     ./ghostty.nix
     ./git.nix
